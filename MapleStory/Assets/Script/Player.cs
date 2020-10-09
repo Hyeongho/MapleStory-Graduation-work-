@@ -1,29 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
 	public float playerSpeed = 1.0f;
 
-	public int HP;
-	public int MP;
+	public float HP;
+	public float MP;
 
-	public int ATK;
+	public float ATK;
 
 	private bool LeftRight;
 	private bool isRight;
 	private bool isLeft;
 
-	public bool isGrounded;
+	private bool isGrounded;
 	private float jumpCount = 2.0f;
 
 	Rigidbody rb;
 
 	Vector3 Look;
 
-    // Start is called before the first frame update
-    void Start()
+	// Start is called before the first frame update
+	void Start()
     {
 		isGrounded = false;
 
@@ -39,7 +40,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
 		if (Input.GetKey(KeyCode.LeftArrow))
 		{
 

@@ -9,6 +9,12 @@ public class Enemy : MonoBehaviour
 	public float velocity;
 	public float accelaration;
 
+	private float playerHP;
+
+	private void Start()
+	{
+		playerHP = GameObject.Find("Player").GetComponent<Player>().HP;
+	}
 
 	// Update is called once per frame
 	void Update()
@@ -37,5 +43,15 @@ public class Enemy : MonoBehaviour
 		{
 			velocity = 0.0f;
 		}
+	}
+
+	private void OnTriggerEnter(Collider col)
+	{
+		if (col.gameObject.tag == "Player")
+		{
+			playerHP -= 10.0f;
+
+			GameObject.Find("Player").GetComponent<Player>().HP = playerHP;
+		}	
 	}
 }
