@@ -35,7 +35,8 @@ public class Player : MonoBehaviour
 
 		rb = GetComponent<Rigidbody>();
 		jumpCount = 0.0f;
-    }
+
+	}
 
     // Update is called once per frame
     void Update()

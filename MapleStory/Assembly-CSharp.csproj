@@ -65,6 +65,9 @@
     <Compile Include="Assets\Script\Enemy.cs" />
     <Compile Include="Assets\Script\HPMP.cs" />
     <Compile Include="Assets\Script\Player.cs" />
+    <Compile Include="Assets\Script\Tutorial\Tutorial.cs" />
+    <Compile Include="Assets\Script\Tutorial\TutorialJump.cs" />
+    <Compile Include="Assets\Script\Tutorial\TutorialMove.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -103,6 +106,7 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
+    <None Include="Assets\Font\상용한글2350자.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
