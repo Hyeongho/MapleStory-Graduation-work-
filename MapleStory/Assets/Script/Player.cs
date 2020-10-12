@@ -23,6 +23,12 @@ public class Player : MonoBehaviour
 
 	Vector3 Look;
 
+	Animator attackAni;
+
+	GameObject Attack;
+
+	bool isAttack;
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -36,6 +42,12 @@ public class Player : MonoBehaviour
 		rb = GetComponent<Rigidbody>();
 		jumpCount = 0.0f;
 
+		attackAni = GameObject.Find("Attack").GetComponent<Animator>();
+		Attack = GameObject.Find("Attack");
+
+		Attack.SetActive(false);
+
+		isAttack = false;
 	}
 
     // Update is called once per frame
@@ -76,7 +88,22 @@ public class Player : MonoBehaviour
 
 		if (Input.GetKey(KeyCode.LeftControl))
 		{
+			Attack.SetActive(true);
 
+			attackAni.SetBool("isAttack", true);
+
+			isAttack = true;
+		}
+
+		else if (Input.GetKeyUp(KeyCode.LeftControl))
+		{
+			attackAni.SetBool("isAttack", false);
+			isAttack = false;
+		}
+
+		if (attackAni.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+		{
+			Attack.SetActive(false);
 		}
 
 	}
@@ -90,8 +117,13 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	void InputRight()
+	IEnumerable AttackCoroutine()
 	{
+		Debug.Log("Start");
 
+		yield return new WaitForSeconds(2.0f);
+
+		
 	}
+
 }
