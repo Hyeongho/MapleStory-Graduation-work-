@@ -8,6 +8,8 @@ public class HPMP : MonoBehaviour
 	Image HP;
 	Image MP;
 
+	GameObject Player;
+
 	public float hp;
 	float mp;
 
@@ -21,6 +23,8 @@ public class HPMP : MonoBehaviour
 
 		HP = GameObject.Find("HP").GetComponent<Image>();
 		MP = GameObject.Find("MP").GetComponent<Image>();
+
+		Player = GameObject.Find("Player");
 
 		maxHP = hp;
 		maxMP = mp;
@@ -39,5 +43,10 @@ public class HPMP : MonoBehaviour
 
 		HP.fillAmount = hp / maxHP;
 		MP.fillAmount = mp / maxMP;
+
+		if (HP.fillAmount <= 0.0f)
+		{
+			Player.SetActive(false);
+		}
 	}
 }

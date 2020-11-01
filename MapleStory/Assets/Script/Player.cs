@@ -19,15 +19,20 @@ public class Player : MonoBehaviour
 	private bool isGrounded;
 	private float jumpCount = 2.0f;
 
+	bool isMove;
+
 	Rigidbody rb;
 
 	Vector3 Look;
 
 	Animator attackAni;
+	Animator PS2; //PsychicSmashing2
 
 	GameObject Attack;
+	GameObject PsychicSmashing2;
 
-	bool isAttack;
+	public bool isAttack;
+	bool iskey;
 
 	// Start is called before the first frame update
 	void Start()
@@ -45,65 +50,111 @@ public class Player : MonoBehaviour
 		attackAni = GameObject.Find("Attack").GetComponent<Animator>();
 		Attack = GameObject.Find("Attack");
 
+		PS2 = GameObject.Find("PsychicSmashing2").GetComponent<Animator>();
+		PsychicSmashing2 = GameObject.Find("PsychicSmashing2");
+
 		Attack.SetActive(false);
 
+		PsychicSmashing2.SetActive(false);
+
 		isAttack = false;
+
+		isMove = true;
 	}
 
     // Update is called once per frame
     void Update()
     {
-		if (Input.GetKey(KeyCode.LeftArrow))
+		if (isMove)
 		{
-
-			Look = 0 * Vector3.forward + -1 * Vector3.right;
-
-			transform.rotation = Quaternion.LookRotation(Look);
-
-			transform.Translate(Vector3.forward * playerSpeed * Time.deltaTime);
-
-		}
-
-		else if (Input.GetKey(KeyCode.RightArrow))
-		{
-			Look = 0 * Vector3.forward + 1 * Vector3.right;
-
-			transform.rotation = Quaternion.LookRotation(Look);
-
-			transform.Translate(Vector3.forward * playerSpeed * Time.deltaTime);
-		}
-
-		if (isGrounded)
-		{
-			if (jumpCount > 0)
+			if (Input.GetKey(KeyCode.LeftArrow))
 			{
-				if (Input.GetKeyDown(KeyCode.LeftAlt))
+
+				Look = 0 * Vector3.forward + -1 * Vector3.right;
+
+				transform.rotation = Quaternion.LookRotation(Look);
+
+				transform.Translate(Vector3.forward * playerSpeed * Time.deltaTime);
+
+			}
+
+			else if (Input.GetKey(KeyCode.RightArrow))
+			{
+				Look = 0 * Vector3.forward + 1 * Vector3.right;
+
+				transform.rotation = Quaternion.LookRotation(Look);
+
+				transform.Translate(Vector3.forward * playerSpeed * Time.deltaTime);
+			}
+
+			if (isGrounded)
+			{
+				if (jumpCount > 0)
 				{
-					rb.AddForce(new Vector3(0, 3, 0) * jumpCount, ForceMode.Impulse);
-					jumpCount--;
+					if (Input.GetKeyDown(KeyCode.LeftAlt))
+					{
+						rb.AddForce(new Vector3(0, 3, 0) * jumpCount, ForceMode.Impulse);
+						jumpCount--;
+					}
+
 				}
-				
 			}
 		}
 
 		if (Input.GetKey(KeyCode.LeftControl))
 		{
-			Attack.SetActive(true);
-
-			attackAni.SetBool("isAttack", true);
+			isMove = false;
 
 			isAttack = true;
+
+			Attack.SetActive(true);
+
+			//attackAni.SetBool("isAttack", true);
+
 		}
 
 		else if (Input.GetKeyUp(KeyCode.LeftControl))
 		{
-			attackAni.SetBool("isAttack", false);
+			//attackAni.SetBool("isAttack", false);
 			isAttack = false;
+
 		}
 
-		if (attackAni.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+		if (Input.GetKey(KeyCode.LeftShift))
 		{
-			Attack.SetActive(false);
+			isMove = false;
+
+			isAttack = true;
+
+			PsychicSmashing2.SetActive(true);
+
+			//PS2.SetBool("IsAttack", true);
+
+		}
+
+		else if (Input.GetKeyUp(KeyCode.LeftShift))
+		{
+			//PS2.SetBool("IsAttack", false);
+
+			isAttack = false;
+	
+		}
+
+		if (!isAttack)
+		{
+			if (attackAni.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f)
+			{
+				Attack.SetActive(false);
+
+				isMove = true;
+			}
+
+			if (PS2.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
+			{
+				PsychicSmashing2.SetActive(false);
+
+				isMove = true;
+			}
 		}
 
 	}
@@ -122,7 +173,6 @@ public class Player : MonoBehaviour
 		Debug.Log("Start");
 
 		yield return new WaitForSeconds(2.0f);
-
 		
 	}
 

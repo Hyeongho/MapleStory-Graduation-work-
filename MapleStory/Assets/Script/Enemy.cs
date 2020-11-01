@@ -11,38 +11,55 @@ public class Enemy : MonoBehaviour
 
 	private float playerHP;
 
+	public float EnemyHP;
+
 	private void Start()
 	{
 		playerHP = GameObject.Find("Player").GetComponent<Player>().HP;
+		EnemyHP = 100.0f;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
 		MoveToTarget();
+
+		if (EnemyHP == 0.0f)
+		{
+			Destroy(this.gameObject);
+		}
 	}
 
 	public void MoveToTarget()
 	{
-		target = GameObject.Find("Player").transform;
-
-		direction = (target.position - transform.position).normalized;
-
-		velocity = velocity * Time.deltaTime;
-
-		float distance = Vector3.Distance(target.position, transform.position);
-
-		if (distance <= 4.0f)
+		if (GameObject.Find("Player").activeSelf)
 		{
-			velocity = 0.01f;
+			target = GameObject.Find("Player").transform;
 
-			this.transform.position = new Vector3(transform.position.x + (direction.x * velocity), transform.position.y, transform.position.z);
+			direction = (target.position - transform.position).normalized;
+
+			velocity = velocity * Time.deltaTime;
+
+			float distance = Vector3.Distance(target.position, transform.position);
+
+			if (distance <= 4.0f)
+			{
+				velocity = 0.01f;
+
+				this.transform.position = new Vector3(transform.position.x + (direction.x * velocity), transform.position.y, transform.position.z);
+			}
+			// 일정거리 밖에 있을 시, 속도 초기화 
+			else
+			{
+				velocity = 0.0f;
+			}
 		}
-		// 일정거리 밖에 있을 시, 속도 초기화 
+
 		else
 		{
-			velocity = 0.0f;
+			return;
 		}
+		
 	}
 
 	private void OnTriggerEnter(Collider col)
@@ -52,6 +69,6 @@ public class Enemy : MonoBehaviour
 			playerHP -= 10.0f;
 
 			GameObject.Find("Player").GetComponent<Player>().HP = playerHP;
-		}	
+		}
 	}
 }

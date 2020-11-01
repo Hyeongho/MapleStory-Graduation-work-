@@ -9,6 +9,7 @@ TagManager:
   - Plater
   - tutorialMove
   - tutorialJump
+  - Attack
   layers:
   - Default
   - TransparentFX
