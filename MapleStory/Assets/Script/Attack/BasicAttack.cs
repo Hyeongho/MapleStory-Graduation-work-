@@ -22,7 +22,7 @@ public class BasicAttack : MonoBehaviour
 
 		playerAttack = GameObject.Find("Player").GetComponent<Player>().isAttack;
 
-		EnemyHP = GameObject.Find("Enemy").GetComponent<Enemy>().EnemyHP;
+		EnemyHP = GameObject.FindWithTag("Enemy").GetComponent<Enemy>().EnemyHP;
 
 		isDamge = false;
 	}
@@ -52,7 +52,9 @@ public class BasicAttack : MonoBehaviour
 		{
 			EnemyHP -= 10.0f;
 
-			GameObject.Find("Enemy").GetComponent<Enemy>().EnemyHP = EnemyHP;
+			GameObject.FindWithTag("Enemy").GetComponent<Enemy>().EnemyHP = EnemyHP;
+
+			GameObject.FindWithTag("Enemy").GetComponent<Enemy>().TakeDamage(10);
 		}		
 	}
 

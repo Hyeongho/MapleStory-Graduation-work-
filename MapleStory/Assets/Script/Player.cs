@@ -34,6 +34,9 @@ public class Player : MonoBehaviour
 	public bool isAttack;
 	bool iskey;
 
+	public GameObject hubDamageText;
+	public Transform hubPos;
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -174,6 +177,14 @@ public class Player : MonoBehaviour
 
 		yield return new WaitForSeconds(2.0f);
 		
+	}
+
+	public void TakeDamage(int damage)
+	{
+		GameObject hubText = Instantiate(hubDamageText);
+		hubText.transform.position = hubPos.position;
+		hubText.GetComponent<DamageText>().damage = damage;
+		Debug.Log(damage);
 	}
 
 }

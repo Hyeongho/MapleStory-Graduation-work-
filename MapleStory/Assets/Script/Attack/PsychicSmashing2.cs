@@ -54,6 +54,7 @@ public class PsychicSmashing2 : MonoBehaviour
 			EnemyHP -= 10.0f;
 
 			GameObject.Find("Enemy").GetComponent<Enemy>().EnemyHP = EnemyHP;
+		
 		}
 	}
 
@@ -61,7 +62,7 @@ public class PsychicSmashing2 : MonoBehaviour
 	{
 		if (col.CompareTag("Enemy"))
 		{
-			isDamge = true;
+			isDamge = true;;
 		}
 	}
 }

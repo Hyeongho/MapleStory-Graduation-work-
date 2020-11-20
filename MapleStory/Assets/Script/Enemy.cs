@@ -13,6 +13,9 @@ public class Enemy : MonoBehaviour
 
 	public float EnemyHP;
 
+	public GameObject hubDamageText;
+	public Transform hubPos;
+
 	private void Start()
 	{
 		playerHP = GameObject.Find("Player").GetComponent<Player>().HP;
@@ -24,7 +27,7 @@ public class Enemy : MonoBehaviour
 	{
 		MoveToTarget();
 
-		if (EnemyHP == 0.0f)
+		if (EnemyHP <= 0.0f)
 		{
 			Destroy(this.gameObject);
 		}
@@ -69,6 +72,15 @@ public class Enemy : MonoBehaviour
 			playerHP -= 10.0f;
 
 			GameObject.Find("Player").GetComponent<Player>().HP = playerHP;
+			GameObject.Find("Player").GetComponent<Player>().TakeDamage(10);
 		}
+	}
+
+	public void TakeDamage(int damage)
+	{
+		GameObject hubText = Instantiate(hubDamageText);
+		hubText.transform.position = hubPos.position;
+		hubText.GetComponent<DamageText>().damage = damage;
+		Debug.Log(damage);
 	}
 }
