@@ -23,7 +23,7 @@ public class PsychicSmashing2 : MonoBehaviour
 
 		playerAttack = GameObject.Find("Player").GetComponent<Player>().isAttack;
 
-		EnemyHP = GameObject.Find("Enemy").GetComponent<Enemy>().EnemyHP;
+		EnemyHP = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>().EnemyHP;
 
 		isDamge = false;
 	}

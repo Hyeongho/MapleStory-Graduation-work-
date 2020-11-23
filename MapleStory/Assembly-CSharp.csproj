@@ -69,6 +69,7 @@
     <Compile Include="Assets\Script\Enemy.cs" />
     <Compile Include="Assets\Script\HPMP.cs" />
     <Compile Include="Assets\Script\Player.cs" />
+    <Compile Include="Assets\Script\Tutorial\Portal.cs" />
     <Compile Include="Assets\Script\Tutorial\Tutorial.cs" />
     <Compile Include="Assets\Script\Tutorial\TutorialJump.cs" />
     <Compile Include="Assets\Script\Tutorial\TutorialMove.cs" />
