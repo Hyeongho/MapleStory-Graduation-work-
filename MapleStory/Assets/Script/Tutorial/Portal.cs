@@ -15,7 +15,7 @@ public class Portal : MonoBehaviour
     {
 		isPortal = false;
 
-		Player = GameObject.Find("Player");
+		Player = GameObject.FindWithTag("Player");
 	}
 
     // Update is called once per frame

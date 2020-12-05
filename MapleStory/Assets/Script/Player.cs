@@ -147,6 +147,8 @@ public class Player : MonoBehaviour
 		{
 			if (attackAni.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f)
 			{
+				Attack.GetComponent<BasicAttack>().enemyList.Clear();
+
 				Attack.SetActive(false);
 
 				isMove = true;

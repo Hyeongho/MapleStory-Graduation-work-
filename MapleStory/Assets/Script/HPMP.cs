@@ -18,13 +18,13 @@ public class HPMP : MonoBehaviour
 
 	private void Awake()
 	{
-		hp = GameObject.Find("Player").GetComponent<Player>().HP;
-		mp = GameObject.Find("Player").GetComponent<Player>().MP;
+		hp = GameObject.FindWithTag("Player").GetComponent<Player>().HP;
+		mp = GameObject.FindWithTag("Player").GetComponent<Player>().MP;
 
 		HP = GameObject.Find("HP").GetComponent<Image>();
 		MP = GameObject.Find("MP").GetComponent<Image>();
 
-		Player = GameObject.Find("Player");
+		Player = GameObject.FindWithTag("Player");
 
 		maxHP = hp;
 		maxMP = mp;
@@ -39,7 +39,7 @@ public class HPMP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		hp = GameObject.Find("Player").GetComponent<Player>().HP;
+		hp = GameObject.FindWithTag("Player").GetComponent<Player>().HP;
 
 		HP.fillAmount = hp / maxHP;
 		MP.fillAmount = mp / maxMP;

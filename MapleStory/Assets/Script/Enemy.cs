@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
 
 	private void Start()
 	{
-		playerHP = GameObject.Find("Player").GetComponent<Player>().HP;
+		playerHP = GameObject.FindWithTag("Player").GetComponent<Player>().HP;
 		EnemyHP = 100.0f;
 	}
 
@@ -35,9 +35,9 @@ public class Enemy : MonoBehaviour
 
 	public void MoveToTarget()
 	{
-		if (GameObject.Find("Player").activeSelf)
+		if (GameObject.FindWithTag("Player").activeSelf)
 		{
-			target = GameObject.Find("Player").transform;
+			target = GameObject.FindWithTag("Player").transform;
 
 			direction = (target.position - transform.position).normalized;
 
@@ -69,10 +69,9 @@ public class Enemy : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			playerHP -= 10.0f;
 
-			GameObject.Find("Player").GetComponent<Player>().HP = playerHP;
-			GameObject.Find("Player").GetComponent<Player>().TakeDamage(10);
+			GameObject.FindWithTag("Player").GetComponent<Player>().HP -= 10;
+			GameObject.FindWithTag("Player").GetComponent<Player>().TakeDamage(10);
 		}
 	}
 

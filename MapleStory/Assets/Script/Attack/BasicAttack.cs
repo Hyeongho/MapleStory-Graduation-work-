@@ -14,15 +14,17 @@ public class BasicAttack : MonoBehaviour
 
 	float EnemyHP;
 
+	public List<GameObject> enemyList = new List<GameObject>();
+
 	// Start is called before the first frame update
 	void Start()
     {
-		anim = GameObject.Find("Attack").GetComponent<Animator>();
-		Attack = GameObject.Find("Attack");
+		anim = GameObject.FindWithTag("Attack").GetComponent<Animator>();
+		Attack = GameObject.FindWithTag("Attack");
 
-		playerAttack = GameObject.Find("Player").GetComponent<Player>().isAttack;
+		playerAttack = GameObject.FindWithTag("Player").GetComponent<Player>().isAttack;
 
-		EnemyHP = GameObject.FindWithTag("Enemy").GetComponent<Enemy>().EnemyHP;
+		EnemyHP = GameObject.FindWithTag("Enemy").GetComponent<Enemy>().EnemyHP;	
 
 		isDamge = false;
 	}
@@ -30,6 +32,8 @@ public class BasicAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		Debug.Log(enemyList.Count);
+
 		SetAttack();
 	}
 
@@ -52,16 +56,22 @@ public class BasicAttack : MonoBehaviour
 		{
 			EnemyHP -= 10.0f;
 
-			GameObject.FindWithTag("Enemy").GetComponent<Enemy>().EnemyHP = EnemyHP;
+			for (int i = 0; i < enemyList.Count; i++)
+			{
+				enemyList[i].GetComponent<Enemy>().EnemyHP -= 10;
+				enemyList[i].GetComponent<Enemy>().TakeDamage(10);
+			}
+		}
 
-			GameObject.FindWithTag("Enemy").GetComponent<Enemy>().TakeDamage(10);
-		}		
+		//enemyList.Clear();
 	}
 
 	private void OnTriggerEnter(Collider col)
 	{
 		if (col.CompareTag("Enemy"))
 		{
+			enemyList.Add(col.gameObject);
+
 			isDamge = true;
 		}
 	}
