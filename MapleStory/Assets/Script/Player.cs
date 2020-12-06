@@ -12,10 +12,6 @@ public class Player : MonoBehaviour
 
 	public float ATK;
 
-	private bool LeftRight;
-	private bool isRight;
-	private bool isLeft;
-
 	private bool isGrounded;
 	private float jumpCount = 2.0f;
 
@@ -27,8 +23,9 @@ public class Player : MonoBehaviour
 
 	Animator attackAni;
 	Animator PS2; //PsychicSmashing2
+	Animator playerAni;
 
-	GameObject Attack;
+	GameObject BasicAttack;
 	GameObject PsychicSmashing2;
 
 	public bool isAttack;
@@ -37,26 +34,30 @@ public class Player : MonoBehaviour
 	public GameObject hubDamageText;
 	public Transform hubPos;
 
+	public List<GameObject> enemyList = new List<GameObject>();
+
+	private void Awake()
+	{
+		rb = GetComponent<Rigidbody>();
+	}
+
 	// Start is called before the first frame update
 	void Start()
     {
 		isGrounded = false;
 
-		LeftRight = false;
-
-		isRight = false;
-		isLeft = false;
-
 		rb = GetComponent<Rigidbody>();
 		jumpCount = 0.0f;
 
 		attackAni = GameObject.Find("Attack").GetComponent<Animator>();
-		Attack = GameObject.Find("Attack");
+		BasicAttack = GameObject.Find("Attack");
+
+		playerAni = this.gameObject.GetComponent<Animator>();
 
 		PS2 = GameObject.Find("PsychicSmashing2").GetComponent<Animator>();
 		PsychicSmashing2 = GameObject.Find("PsychicSmashing2");
 
-		Attack.SetActive(false);
+		BasicAttack.SetActive(false);
 
 		PsychicSmashing2.SetActive(false);
 
@@ -70,57 +71,82 @@ public class Player : MonoBehaviour
     {
 		if (isMove)
 		{
-			if (Input.GetKey(KeyCode.LeftArrow))
-			{
-
-				Look = 0 * Vector3.forward + -1 * Vector3.right;
-
-				transform.rotation = Quaternion.LookRotation(Look);
-
-				transform.Translate(Vector3.forward * playerSpeed * Time.deltaTime);
-
-			}
-
-			else if (Input.GetKey(KeyCode.RightArrow))
-			{
-				Look = 0 * Vector3.forward + 1 * Vector3.right;
-
-				transform.rotation = Quaternion.LookRotation(Look);
-
-				transform.Translate(Vector3.forward * playerSpeed * Time.deltaTime);
-			}
-
-			if (isGrounded)
-			{
-				if (jumpCount > 0)
-				{
-					if (Input.GetKeyDown(KeyCode.LeftAlt))
-					{
-						rb.AddForce(new Vector3(0, 3, 0) * jumpCount, ForceMode.Impulse);
-						jumpCount--;
-					}
-
-				}
-			}
+			Move();
 		}
 
+		Attack();
+
+	}
+
+	private void Move()
+	{
+		if (Input.GetKey(KeyCode.LeftArrow))
+		{
+			playerAni.SetBool("isMove", true);
+
+			Look = 0 * Vector3.forward + -1 * Vector3.right;
+
+			transform.rotation = Quaternion.LookRotation(Look);
+
+			transform.Translate(Vector3.forward * playerSpeed * Time.deltaTime);
+
+		}
+
+		else if (Input.GetKeyUp(KeyCode.LeftArrow))
+		{
+			playerAni.SetBool("isMove", false);
+		}
+
+		if (Input.GetKey(KeyCode.RightArrow))
+		{
+			playerAni.SetBool("isMove", true);
+
+			Look = 0 * Vector3.forward + 1 * Vector3.right;
+
+			transform.rotation = Quaternion.LookRotation(Look);
+
+			transform.Translate(Vector3.forward * playerSpeed * Time.deltaTime);
+		}
+
+		else if (Input.GetKeyUp(KeyCode.RightArrow))
+		{
+			playerAni.SetBool("isMove", false);
+		}
+
+		if (isGrounded)
+		{
+			if (jumpCount > 0)
+			{
+				if (Input.GetKeyDown(KeyCode.LeftAlt))
+				{
+					if (jumpCount == 2)
+					{
+						playerAni.SetBool("isJump", true);
+					}
+
+					rb.AddForce(new Vector3(0, 2.5f, 0) * jumpCount, ForceMode.Impulse);
+					jumpCount--;
+				}
+
+			}
+		}
+	}
+
+	void Attack()
+	{
 		if (Input.GetKey(KeyCode.LeftControl))
 		{
 			isMove = false;
 
 			isAttack = true;
 
-			Attack.SetActive(true);
-
-			//attackAni.SetBool("isAttack", true);
+			BasicAttack.SetActive(true);
 
 		}
 
 		else if (Input.GetKeyUp(KeyCode.LeftControl))
 		{
-			//attackAni.SetBool("isAttack", false);
 			isAttack = false;
-
 		}
 
 		if (Input.GetKey(KeyCode.LeftShift))
@@ -131,43 +157,42 @@ public class Player : MonoBehaviour
 
 			PsychicSmashing2.SetActive(true);
 
-			//PS2.SetBool("IsAttack", true);
 
 		}
 
 		else if (Input.GetKeyUp(KeyCode.LeftShift))
 		{
-			//PS2.SetBool("IsAttack", false);
-
 			isAttack = false;
-	
 		}
 
 		if (!isAttack)
 		{
 			if (attackAni.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f)
 			{
-				Attack.GetComponent<BasicAttack>().enemyList.Clear();
+				enemyList.Clear();
 
-				Attack.SetActive(false);
+				BasicAttack.SetActive(false);
 
 				isMove = true;
 			}
 
-			if (PS2.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
+			if ((PS2.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f) && PS2.GetCurrentAnimatorStateInfo(0).IsName("PsychicSmashing2_hit"))
 			{
+				enemyList.Clear();
+
 				PsychicSmashing2.SetActive(false);
 
 				isMove = true;
 			}
 		}
-
 	}
 
 	private void OnCollisionEnter(Collision col)
 	{
 		if (col.gameObject.tag == "Ground")
 		{
+			playerAni.SetBool("isJump", false);
+
 			isGrounded = true;
 			jumpCount = 2.0f;
 		}
