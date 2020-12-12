@@ -189,7 +189,7 @@ public class Player : MonoBehaviour
 
 	private void OnCollisionEnter(Collision col)
 	{
-		if (col.gameObject.tag == "Ground")
+		if (col.gameObject.CompareTag("Ground"))
 		{
 			playerAni.SetBool("isJump", false);
 

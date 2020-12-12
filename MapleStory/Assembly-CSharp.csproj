@@ -71,6 +71,9 @@
     <Compile Include="Assets\Script\Enemy\EnemyHp.cs" />
     <Compile Include="Assets\Script\HPMP.cs" />
     <Compile Include="Assets\Script\Player.cs" />
+    <Compile Include="Assets\Script\Title\SelectChannel.cs" />
+    <Compile Include="Assets\Script\Title\TitleOut.cs" />
+    <Compile Include="Assets\Script\Title\TitleText.cs" />
     <Compile Include="Assets\Script\Tutorial\Portal.cs" />
     <Compile Include="Assets\Script\Tutorial\Tutorial.cs" />
     <Compile Include="Assets\Script\Tutorial\TutorialJump.cs" />
@@ -763,6 +766,12 @@
     <Reference Include="Boo.Lang">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.3f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{1C5D8622-963B-97E3-4632-36B978BB7ECB}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

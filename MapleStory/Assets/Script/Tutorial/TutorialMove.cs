@@ -12,12 +12,6 @@ public class TutorialMove : MonoBehaviour
 		tutorialMove = false;
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 	private void OnTriggerEnter(Collider col)
 	{
 		if (col.gameObject.tag == "Player")
