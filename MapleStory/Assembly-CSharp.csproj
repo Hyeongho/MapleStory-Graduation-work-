@@ -70,11 +70,8 @@
     <Compile Include="Assets\Script\CMCam.cs" />
     <Compile Include="Assets\Script\CameraMove.cs" />
     <Compile Include="Assets\Script\Damage\DamageText.cs" />
-<<<<<<< HEAD
     <Compile Include="Assets\Script\DataManager.cs" />
     <Compile Include="Assets\Script\DialogueManager.cs" />
-=======
->>>>>>> parent of 096ce3f8 (210303)
     <Compile Include="Assets\Script\Enemy\Drone.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyHp.cs" />
@@ -83,7 +80,6 @@
     <Compile Include="Assets\Script\MoveScene\TransferMap.cs" />
     <Compile Include="Assets\Script\NPC\NPCManager.cs" />
     <Compile Include="Assets\Script\Player.cs" />
-<<<<<<< HEAD
     <Compile Include="Assets\Script\ReSpawn.cs" />
     <Compile Include="Assets\Script\Scriptable Objects\Armor.cs" />
     <Compile Include="Assets\Script\Scriptable Objects\Consume.cs" />
@@ -91,9 +87,8 @@
     <Compile Include="Assets\Script\Scriptable Objects\Item.cs" />
     <Compile Include="Assets\Script\Scriptable Objects\Weapon.cs" />
     <Compile Include="Assets\Script\Title\GameStart.cs" />
-=======
->>>>>>> parent of 096ce3f8 (210303)
     <Compile Include="Assets\Script\Title\SelectChannel.cs" />
+    <Compile Include="Assets\Script\Title\SlectChar.cs" />
     <Compile Include="Assets\Script\Title\TitleOut.cs" />
     <Compile Include="Assets\Script\Title\TitleText.cs" />
     <Compile Include="Assets\Script\Tutorial\Portal.cs" />
@@ -155,11 +150,8 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterialOutline-Trans.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
-<<<<<<< HEAD
-    <None Include="Assets\NPC\유나\eye.frames\delay.txt" />
-=======
     <None Include="Assets\Jeremy\Docs\MaleCharacterAnimation.txt" />
->>>>>>> parent of 096ce3f8 (210303)
+    <None Include="Assets\NPC\유나\eye.frames\delay.txt" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterialOutline-Trans-CullBack.shader" />
     <None Include="Assets\NPC\하얀마법사\say.frames\delay.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
@@ -200,7 +192,7 @@
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterial.shader" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterialVertFrag.cginc" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterialOutline-NoCastShadow.shader" />
-    <None Include="Assets\Player\Yuna\Attack\Sprite\164001000.effect0.frames\delay.txt" />
+    <None Include="Assets\Sprite\164001000.effect0.frames\delay.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterial-Trans-NoCastShadow.shader" />
     <None Include="Assets\NPC\제이\1531001.img.think.frames\delay.txt" />
