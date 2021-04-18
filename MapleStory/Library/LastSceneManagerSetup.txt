@@ -1,5 +1,9 @@
 sceneSetups:
+<<<<<<< HEAD
+- path: Assets/Scenes/Agit.unity
+=======
 - path: Assets/Scenes/SelectChannel.unity
+>>>>>>> parent of 096ce3f8 (210303)
   isLoaded: 1
   isActive: 1
   isSubScene: 0

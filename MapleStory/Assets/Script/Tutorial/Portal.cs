@@ -36,8 +36,11 @@ public class Portal : MonoBehaviour
 		{
 			isPortal = true;
 		}
+	}
 
-		else
+	private void OnTriggerExit(Collider col)
+	{
+		if (col.gameObject.tag == "Player")
 		{
 			isPortal = false;
 		}

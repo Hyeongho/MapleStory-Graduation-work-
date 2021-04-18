@@ -1,0 +1,2 @@
+Consumables,빨간포션,HP,100
+Consumables,파란포션,MP,100

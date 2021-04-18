@@ -2,8 +2,6 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <CscToolPath>C:\Program Files\Unity\Hub\Editor\2019.3.3f1\Editor\Data\Tools\RoslynScripts</CscToolPath>
-    <CscToolExe>unity_csc.bat</CscToolExe>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -49,10 +47,14 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
+    <UnityProjectGeneratorVersion>4.9.1.0</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>2019.3.3f1</UnityVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2019.3.3f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -62,15 +64,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\Attack\BasicAttack.cs" />
-    <Compile Include="Assets\Script\Attack\PsychicSmashing2.cs" />
+    <Compile Include="Assets\Script\Attack\Kinesis\BasicAttack.cs" />
+    <Compile Include="Assets\Script\Attack\Kinesis\PsychicSmashing2.cs" />
+    <Compile Include="Assets\Script\Attack\Yuna\YunaAttack.cs" />
+    <Compile Include="Assets\Script\CMCam.cs" />
     <Compile Include="Assets\Script\CameraMove.cs" />
     <Compile Include="Assets\Script\Damage\DamageText.cs" />
+<<<<<<< HEAD
+    <Compile Include="Assets\Script\DataManager.cs" />
+    <Compile Include="Assets\Script\DialogueManager.cs" />
+=======
+>>>>>>> parent of 096ce3f8 (210303)
     <Compile Include="Assets\Script\Enemy\Drone.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyHp.cs" />
     <Compile Include="Assets\Script\HPMP.cs" />
+    <Compile Include="Assets\Script\MoveScene\StartPoint.cs" />
+    <Compile Include="Assets\Script\MoveScene\TransferMap.cs" />
+    <Compile Include="Assets\Script\NPC\NPCManager.cs" />
     <Compile Include="Assets\Script\Player.cs" />
+<<<<<<< HEAD
+    <Compile Include="Assets\Script\ReSpawn.cs" />
+    <Compile Include="Assets\Script\Scriptable Objects\Armor.cs" />
+    <Compile Include="Assets\Script\Scriptable Objects\Consume.cs" />
+    <Compile Include="Assets\Script\Scriptable Objects\Equip.cs" />
+    <Compile Include="Assets\Script\Scriptable Objects\Item.cs" />
+    <Compile Include="Assets\Script\Scriptable Objects\Weapon.cs" />
+    <Compile Include="Assets\Script\Title\GameStart.cs" />
+=======
+>>>>>>> parent of 096ce3f8 (210303)
     <Compile Include="Assets\Script\Title\SelectChannel.cs" />
     <Compile Include="Assets\Script\Title\TitleOut.cs" />
     <Compile Include="Assets\Script\Title\TitleText.cs" />
@@ -78,6 +100,10 @@
     <Compile Include="Assets\Script\Tutorial\Tutorial.cs" />
     <Compile Include="Assets\Script\Tutorial\TutorialJump.cs" />
     <Compile Include="Assets\Script\Tutorial\TutorialMove.cs" />
+    <Compile Include="Assets\Script\UI\Dialogue.cs" />
+    <Compile Include="Assets\Script\UI\Inventory.cs" />
+    <Compile Include="Assets\Script\UI\TextDialogue.cs" />
+    <Compile Include="Assets\Script\YunaPlayer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -129,21 +155,36 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterialOutline-Trans.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
+<<<<<<< HEAD
+    <None Include="Assets\NPC\유나\eye.frames\delay.txt" />
+=======
     <None Include="Assets\Jeremy\Docs\MaleCharacterAnimation.txt" />
+>>>>>>> parent of 096ce3f8 (210303)
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterialOutline-Trans-CullBack.shader" />
+    <None Include="Assets\NPC\하얀마법사\say.frames\delay.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
+    <None Include="Assets\NPC\하얀마법사\info.illustration2.face.frames\delay.txt" />
+    <None Include="Assets\NPC\제이\1531001.img.info.illustration2.face.frames\delay.txt" />
+    <None Include="Assets\NPC\제이\1531001.img.eye.frames\delay.txt" />
     <None Include="Assets\Kevin Iglesias\3DCharacterDummy\Readme.txt" />
+    <None Include="Assets\NPC\유나\angry.frames\delay.txt" />
+    <None Include="Assets\Player\Yuna\Skill\101120203.effect_ple.end.frames\delay.txt" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterialShadowVertFrag.cginc" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterialOutline-Trans-CullBack-NoCastShadow.shader" />
+    <None Include="Assets\NPC\하얀마법사\eye.frames\delay.txt" />
     <None Include="Assets\Font\상용한글2350자.txt" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterial-Trans-CullBack.shader" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterial-Trans.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterialSurface.cginc" />
+    <None Include="Assets\UI\Portal\portal.game.pv.default.frames\delay.txt" />
+    <None Include="Assets\Player\Yuna\Skill\101120203.effect_ple.loop.frames\delay.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\Player\Yuna\Skill\101120203.effect_ple.pre.frames\delay.txt" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\Player\Yuna\Skill\22111011.effect.frames\delay.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterial-Trans-CullBack-NoCastShadow.shader" />
@@ -154,18 +195,26 @@
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterialDummy.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterial-NoCastShadow.shader" />
+    <None Include="Assets\NPC\유나\info.illustration2.face.frames\delay.txt" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterial-CullBack-NoCastShadow.shader" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterial.shader" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterialVertFrag.cginc" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterialOutline-NoCastShadow.shader" />
+    <None Include="Assets\Player\Yuna\Attack\Sprite\164001000.effect0.frames\delay.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterial-Trans-NoCastShadow.shader" />
+    <None Include="Assets\NPC\제이\1531001.img.think.frames\delay.txt" />
+    <None Include="Assets\NPC\유나\say.frames\delay.txt" />
+    <None Include="Assets\Player\Yuna\Skill\13101020.effect.frames\delay.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterialOutline-CullBack.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterialOutline.shader" />
+    <None Include="Assets\map\Agit\ani.0.frames\delay.txt" />
+    <None Include="Assets\NPC\제이\1531001.img.say.frames\delay.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\NPC\하얀마법사\move.frames\delay.txt" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterial-CullBack.shader" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterialOutline-Trans-NoCastShadow.shader" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\HalfLambert.shader" />

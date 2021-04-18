@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\MapleStory_4_22.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{E37A58A3-97E4-4BB1-AC6E-27AC962BC775}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\MapleStory_4_22.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\MapleStory_4_22Editor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{12BD98BE-DB0F-4563-B8BA-B72A127A1D81}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\MapleStory_4_22">
+      <UniqueIdentifier>{02C89B17-9349-488F-BF5A-6E8501D020BD}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\MapleStory_4_22\MapleStory_4_22.Build.cs">
+      <Filter>Source\MapleStory_4_22</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\MapleStory_4_22\MapleStory_4_22.cpp">
+      <Filter>Source\MapleStory_4_22</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MapleStory_4_22\MapleStory_4_22.h">
+      <Filter>Source\MapleStory_4_22</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MapleStory_4_22\MapleStory_4_22Character.cpp">
+      <Filter>Source\MapleStory_4_22</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MapleStory_4_22\MapleStory_4_22Character.h">
+      <Filter>Source\MapleStory_4_22</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MapleStory_4_22\MapleStory_4_22GameMode.cpp">
+      <Filter>Source\MapleStory_4_22</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MapleStory_4_22\MapleStory_4_22GameMode.h">
+      <Filter>Source\MapleStory_4_22</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

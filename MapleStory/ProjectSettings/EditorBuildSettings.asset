@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/tutorial.unity
     guid: 19c1366fd1762ac438e34d19f3eea2b4
+  - enabled: 1
+    path: Assets/Scenes/Agit.unity
+    guid: ba73b843d9c34184dbb16839f64f6ca6
+  - enabled: 1
+    path: Assets/Scenes/Seoul.unity
+    guid: 42069196d27bf184f87740c2f94fc721
   m_configObjects: {}

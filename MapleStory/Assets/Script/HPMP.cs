@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class HPMP : MonoBehaviour
 {
+	public static HPMP instance;
+
 	Image HP;
 	Image MP;
 
@@ -18,6 +20,18 @@ public class HPMP : MonoBehaviour
 
 	private void Awake()
 	{
+		if (instance == null)
+		{
+			instance = this;
+		}
+
+		else if (instance != null)
+		{
+			return;
+		}
+
+		DontDestroyOnLoad(gameObject);
+
 		hp = GameObject.FindWithTag("Player").GetComponent<Player>().HP;
 		mp = GameObject.FindWithTag("Player").GetComponent<Player>().MP;
 

@@ -5,6 +5,13 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+	public static Player instance;
+
+	DataManager dataManager;
+
+	bool IsKinesis = false;
+	bool IsYuna = false;
+
 	public float playerSpeed = 1.0f;
 
 	public float HP;
@@ -34,11 +41,30 @@ public class Player : MonoBehaviour
 	public GameObject hubDamageText;
 	public Transform hubPos;
 
+	public GameObject inventoryPanel;
+	bool activelnventory = false;
+
 	public List<GameObject> enemyList = new List<GameObject>();
+
+	public string currentMapName;
 
 	private void Awake()
 	{
+		if (instance == null)
+		{
+			instance = this;
+		}
+
+		else if (instance != null)
+		{
+			return;
+		}
+
+		DontDestroyOnLoad(gameObject);
+
 		rb = GetComponent<Rigidbody>();
+
+		dataManager = GameObject.Find("DataManager").GetComponent<DataManager>();
 	}
 
 	// Start is called before the first frame update
@@ -49,17 +75,27 @@ public class Player : MonoBehaviour
 		rb = GetComponent<Rigidbody>();
 		jumpCount = 0.0f;
 
-		attackAni = GameObject.Find("Attack").GetComponent<Animator>();
-		BasicAttack = GameObject.Find("Attack");
-
 		playerAni = this.gameObject.GetComponent<Animator>();
 
-		PS2 = GameObject.Find("PsychicSmashing2").GetComponent<Animator>();
-		PsychicSmashing2 = GameObject.Find("PsychicSmashing2");
+		if ((int)DataManager.instance.currentCharacter == 1)
+		{
+			attackAni = GameObject.Find("Attack").GetComponent<Animator>();
+			BasicAttack = GameObject.Find("Attack");
 
-		BasicAttack.SetActive(false);
+			PS2 = GameObject.Find("PsychicSmashing2").GetComponent<Animator>();
+			PsychicSmashing2 = GameObject.Find("PsychicSmashing2");
 
-		PsychicSmashing2.SetActive(false);
+			BasicAttack.SetActive(false);
+
+			PsychicSmashing2.SetActive(false);
+
+			IsKinesis = true;
+		}
+
+		else if ((int)DataManager.instance.currentCharacter == 2)
+		{
+			IsYuna = true;
+		}
 
 		isAttack = false;
 
@@ -72,6 +108,12 @@ public class Player : MonoBehaviour
 		if (isMove)
 		{
 			Move();
+		}
+
+		if (Input.GetKeyDown(KeyCode.I))
+		{
+			activelnventory = !activelnventory;
+			inventoryPanel.SetActive(activelnventory);
 		}
 
 		Attack();
@@ -134,57 +176,104 @@ public class Player : MonoBehaviour
 
 	void Attack()
 	{
-		if (Input.GetKey(KeyCode.LeftControl))
+		if (IsKinesis)
 		{
-			isMove = false;
-
-			isAttack = true;
-
-			BasicAttack.SetActive(true);
-
-		}
-
-		else if (Input.GetKeyUp(KeyCode.LeftControl))
-		{
-			isAttack = false;
-		}
-
-		if (Input.GetKey(KeyCode.LeftShift))
-		{
-			isMove = false;
-
-			isAttack = true;
-
-			PsychicSmashing2.SetActive(true);
-
-
-		}
-
-		else if (Input.GetKeyUp(KeyCode.LeftShift))
-		{
-			isAttack = false;
-		}
-
-		if (!isAttack)
-		{
-			if (attackAni.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f)
+			if (Input.GetKey(KeyCode.LeftControl))
 			{
-				enemyList.Clear();
+				isMove = false;
 
-				BasicAttack.SetActive(false);
+				isAttack = true;
 
-				isMove = true;
+				BasicAttack.SetActive(true);
+
 			}
 
+			else if (Input.GetKeyUp(KeyCode.LeftControl))
+			{
+				isAttack = false;
+			}
+
+			if (Input.GetKey(KeyCode.LeftShift))
+			{
+				isMove = false;
+
+				isAttack = true;
+
+				PsychicSmashing2.SetActive(true);
+			}
+
+			else if (Input.GetKeyUp(KeyCode.LeftShift))
+			{
+				isAttack = false;
+			}
+
+			if (!isAttack)
+			{
+				if (attackAni.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f)
+				{
+					enemyList.Clear();
+
+					BasicAttack.SetActive(false);
+
+					isMove = true;
+				}
+
+				if ((PS2.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) && PS2.GetCurrentAnimatorStateInfo(0).IsName("PsychicSmashing2_hit"))
+				{
+					enemyList.Clear();
+
+					PsychicSmashing2.SetActive(false);
+
+					isMove = true;
+				}
+			}
+		}
+
+		else if(IsYuna)
+		{
+			if (Input.GetKey(KeyCode.LeftControl))
+			{
+				isMove = false;
+
+				isAttack = true;
+			}
+
+			else if (Input.GetKeyUp(KeyCode.LeftControl))
+			{
+				isMove = false;
+
+				isAttack = true;
+			}
+
+<<<<<<< HEAD
+			if (Input.GetKey(KeyCode.LeftShift))
+=======
 			if ((PS2.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f) && PS2.GetCurrentAnimatorStateInfo(0).IsName("PsychicSmashing2_hit"))
+>>>>>>> parent of 096ce3f8 (210303)
 			{
-				enemyList.Clear();
+				isMove = false;
 
-				PsychicSmashing2.SetActive(false);
+				isAttack = true;
+			}
 
-				isMove = true;
+			else if (Input.GetKey(KeyCode.LeftShift))
+			{
+				isMove = false;
+
+				isAttack = true;
+			}
+
+			if (!isAttack)
+			{
+
 			}
 		}
+
+		else
+		{
+			return;
+		}
+		
 	}
 
 	private void OnCollisionEnter(Collision col)
