@@ -8,7 +8,7 @@ public class PsychicSmashing2 : MonoBehaviour
 
 	Animator anim;
 
-	GameObject Player;
+	Player player;
 
 	GameObject Enemy;
 
@@ -20,7 +20,7 @@ public class PsychicSmashing2 : MonoBehaviour
 
 	private void Awake()
 	{
-		Player = GameObject.FindWithTag("Player");
+		player = GameObject.FindWithTag("Player").GetComponent<Player>();
 
 		Enemy = GameObject.FindGameObjectWithTag("Enemy");
 	}
@@ -47,7 +47,7 @@ public class PsychicSmashing2 : MonoBehaviour
 
 	void SetAttack()
 	{
-		if (!playerAttack)
+		if (player.isAttack)
 		{
 			anim.SetBool("IsAttack", true);
 		}
@@ -69,7 +69,7 @@ public class PsychicSmashing2 : MonoBehaviour
 				GameObject.FindWithTag("Player").GetComponent<Player>().enemyList[i].GetComponent<Enemy>().EnemyHP -= 10;
 				GameObject.FindWithTag("Player").GetComponent<Player>().enemyList[i].GetComponent<Enemy>().TakeDamage(10);
 
-				int reaction = Enemy.transform.position.x - Player.transform.position.x > 0 ? 1 : -1;
+				int reaction = Enemy.transform.position.x - player.transform.position.x > 0 ? 1 : -1;
 				Enemy.GetComponent<Rigidbody>().AddForce(new Vector3(reaction, 0, 0) * 5.0f, ForceMode.Impulse);
 			}
 

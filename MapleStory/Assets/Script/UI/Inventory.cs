@@ -5,6 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
+    bool isInven = false;
 
 	private void Awake()
 	{
@@ -24,12 +25,16 @@ public class Inventory : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-        
+        this.gameObject.SetActive(isInven);
     }
 
     // Update is called once per frame
     void Update()
     {
-		
+		if (Input.GetKeyDown(KeyCode.I))
+		{
+            isInven = !isInven;
+            this.gameObject.SetActive(isInven);
+        }
     }
 }

@@ -11,7 +11,7 @@ public class ReSpawn : MonoBehaviour
 
 	private void Awake()
 	{
-        player = Instantiate(charPrefabs[DataManager.instance.currentCharacter]);
+        player = Instantiate(charPrefabs[(int)DataManager.instance.currentCharacter]);
         player.transform.position = this.gameObject.transform.position;
 
     }

@@ -12406,11 +12406,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kineis
       objectReference: {fileID: 0}
-    - target: {fileID: 9223038475403900455, guid: 427d4657397a96847841fd05c4c4f6fc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 427d4657397a96847841fd05c4c4f6fc, type: 3}
 --- !u!4 &5006512736707459712 stripped

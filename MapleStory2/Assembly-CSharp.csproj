@@ -67,7 +67,6 @@
     <Compile Include="Assets\Script\Attack\BasicAttack.cs" />
     <Compile Include="Assets\Script\Attack\PsychicSmashing2.cs" />
     <Compile Include="Assets\Script\Attack\Yuna\YunaAttack.cs" />
-    <Compile Include="Assets\Script\CMCam.cs" />
     <Compile Include="Assets\Script\CameraMove.cs" />
     <Compile Include="Assets\Script\Damage\DamageText.cs" />
     <Compile Include="Assets\Script\DataManager.cs" />
@@ -76,11 +75,8 @@
     <Compile Include="Assets\Script\Enemy\Enemy.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyHp.cs" />
     <Compile Include="Assets\Script\HPMP.cs" />
-    <Compile Include="Assets\Script\MoveScene\StartPoint.cs" />
-    <Compile Include="Assets\Script\MoveScene\TransferMap.cs" />
     <Compile Include="Assets\Script\NPC\NPCManager.cs" />
     <Compile Include="Assets\Script\Player.cs" />
-    <Compile Include="Assets\Script\ReSpawn.cs" />
     <Compile Include="Assets\Script\Scriptable Objects\Armor.cs" />
     <Compile Include="Assets\Script\Scriptable Objects\Consume.cs" />
     <Compile Include="Assets\Script\Scriptable Objects\Equip.cs" />
@@ -216,6 +212,9 @@
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>E:/졸작/MapleStory2/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>E:/졸작/MapleStory2/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>E:/졸작/MapleStory2/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
@@ -234,17 +233,14 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>E:/졸작/MapleStory2/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>E:/졸작/MapleStory2/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>E:/졸작/MapleStory2/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>E:/졸작/MapleStory2/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>E:/졸작/MapleStory2/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>E:/졸작/MapleStory2/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
