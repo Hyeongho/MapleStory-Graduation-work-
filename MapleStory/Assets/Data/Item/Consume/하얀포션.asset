@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fcc20b759687464b825cd172f75dc1d, type: 3}
   m_Name: "\uD558\uC580\uD3EC\uC158"
   m_EditorClassIdentifier: 
-  objectName: 
+  objectName: "\uD558\uC580\uD3EC\uC158"
   sprite: {fileID: 21300000, guid: e050b0781cf411f40b7e558d9d79444e, type: 3}
   quantity: 0
   stackable: 0
+  itemType: 1
   HPamount: 0
   MPamount: 0

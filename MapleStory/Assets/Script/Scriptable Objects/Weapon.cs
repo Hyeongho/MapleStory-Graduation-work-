@@ -4,7 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "Weapon")]
 
-public class Wepon : Equip
+public class Weapon : Equip
 {
     public int Atk;
 }

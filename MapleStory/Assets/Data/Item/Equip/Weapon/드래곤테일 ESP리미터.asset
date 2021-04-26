@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: ac6c8449a76fdd341af835e45ff99fd8, type: 3}
   m_Name: "\uB4DC\uB798\uACE4\uD14C\uC77C ESP\uB9AC\uBBF8\uD130"
-  m_EditorClassIdentifier: Assembly-CSharp::Wepon
-  objectName: 
+  m_EditorClassIdentifier: 
+  objectName: "\uB4DC\uB798\uACE4\uD14C\uC77C ESP\uB9AC\uBBF8\uD130"
   sprite: {fileID: 21300000, guid: ebb8ffd0c10ce8e4eba527857d2660d3, type: 3}
   quantity: 0
   stackable: 0

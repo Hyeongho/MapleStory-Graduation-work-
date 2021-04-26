@@ -76,6 +76,8 @@
     <Compile Include="Assets\Script\Enemy\Enemy.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyHp.cs" />
     <Compile Include="Assets\Script\HPMP.cs" />
+    <Compile Include="Assets\Script\Item\FieldItem.cs" />
+    <Compile Include="Assets\Script\Item\ItemDB.cs" />
     <Compile Include="Assets\Script\MoveScene\StartPoint.cs" />
     <Compile Include="Assets\Script\MoveScene\TransferMap.cs" />
     <Compile Include="Assets\Script\NPC\NPCManager.cs" />

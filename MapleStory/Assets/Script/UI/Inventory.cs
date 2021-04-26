@@ -7,6 +7,8 @@ public class Inventory : MonoBehaviour
     public static Inventory instance;
     bool isInven = false;
 
+    public GameObject Inven;
+
 	private void Awake()
 	{
         if (instance == null)
@@ -25,7 +27,7 @@ public class Inventory : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-        this.gameObject.SetActive(isInven);
+        Inven.SetActive(isInven);
     }
 
     // Update is called once per frame
@@ -34,7 +36,7 @@ public class Inventory : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.I))
 		{
             isInven = !isInven;
-            this.gameObject.SetActive(isInven);
+            Inven.SetActive(isInven);
         }
     }
 }
