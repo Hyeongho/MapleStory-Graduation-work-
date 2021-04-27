@@ -28,17 +28,17 @@ public class FieldItem : MonoBehaviour
 	{
 		if ((int)_item.itemType == 0)
 		{
-
-		}
+            SetWeapon((Weapon)_item);
+        }
 
 		else if ((int)_item.itemType == 1)
 		{
-
-		}
+            SetConsume((Consume)_item);
+        }
 
 		else if ((int)_item.itemType == 2)
 		{
-
+            SetArmor((Armor)_item);
 		}
 	}
 
