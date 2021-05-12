@@ -2692,7 +2692,7 @@ GameObject:
   - component: {fileID: 6764553746980643875}
   - component: {fileID: 6764553746980643872}
   m_Layer: 0
-  m_Name: BasixAttack
+  m_Name: BasicAttack
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2950,8 +2950,6 @@ MonoBehaviour:
   hubDamageText: {fileID: 3585863616873076907, guid: 3ed29ddd646f04546b2933fdc3ae251e,
     type: 3}
   hubPos: {fileID: 6764553745515183661}
-  inventoryPanel: {fileID: 4740564752907235588, guid: 4b6473235e329e84b8ebe7799dfc828a,
-    type: 3}
   enemyList: []
   currentMapName: 
 --- !u!1 &6764553747038917007

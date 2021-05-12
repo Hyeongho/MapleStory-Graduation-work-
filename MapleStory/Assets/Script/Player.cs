@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
 	DataManager dataManager;
+	DialogueManager dialogueManager;
 
 	bool isKineis = false;
-	bool isYuna = false;
+	bool IsYuna = false;
 
 	public float playerSpeed = 1.0f;
 
@@ -36,12 +37,16 @@ public class Player : MonoBehaviour
 	public bool isAttack;
 	bool iskey;
 
+	bool tagNpc;
+
 	public GameObject hubDamageText;
 	public Transform hubPos;
 
 	public List<GameObject> enemyList = new List<GameObject>();
 
 	public string currentMapName;
+
+	GameObject scanObject;
 
 	private void Awake()
 	{
@@ -56,31 +61,37 @@ public class Player : MonoBehaviour
 
 		else
 		{
-			isYuna = true;
+			IsYuna = true;
 		}
+
+		dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
 	}
 
 	// Start is called before the first frame update
 	void Start()
     {
+		tagNpc = false;
 
 		isGrounded = false;
 
 		rb = GetComponent<Rigidbody>();
 		jumpCount = 0.0f;
 
-		attackAni = GameObject.Find("Attack").GetComponent<Animator>();
-		BasicAttack = GameObject.Find("Attack");
+		if (isKineis)
+		{
+			attackAni = GameObject.Find("Attack").GetComponent<Animator>();
+			BasicAttack = GameObject.Find("Attack");
 
-		playerAni = this.gameObject.GetComponent<Animator>();
+			PS2 = GameObject.Find("PsychicSmashing2").GetComponent<Animator>();
+			PsychicSmashing2 = GameObject.Find("PsychicSmashing2");
 
-		PS2 = GameObject.Find("PsychicSmashing2").GetComponent<Animator>();
-		PsychicSmashing2 = GameObject.Find("PsychicSmashing2");
+			BasicAttack.SetActive(false);
 
-		BasicAttack.SetActive(false);
+			PsychicSmashing2.SetActive(false);
+		}
 
-		PsychicSmashing2.SetActive(false);
-
+		playerAni = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+		
 		isAttack = false;
 
 		isMove = true;
@@ -89,14 +100,23 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (isMove)
+		if (!dialogueManager.isAction)
 		{
-			Move();
+			if (isMove)
+			{
+				Move();
+			}
+
+			Attack();
 		}
 
-		Attack();
-
-
+		if (tagNpc)
+		{
+			if (Input.GetKeyDown(KeyCode.Space))
+			{
+				dialogueManager.Action(scanObject);
+			}
+		}
 	}
 
 	private void Move()
@@ -236,6 +256,28 @@ public class Player : MonoBehaviour
 		hubText.transform.position = hubPos.position;
 		hubText.GetComponent<DamageText>().damage = damage;
 		Debug.Log(damage);
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.CompareTag("NPC"))
+		{
+			tagNpc = true;
+
+			scanObject = other.gameObject;
+
+			Debug.Log("tag");			
+		}
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		if (other.gameObject.CompareTag("NPC") && tagNpc)
+		{
+			scanObject = null;
+
+			tagNpc = false;
+		}
 	}
 
 }

@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Road_Buliding.unity
+- path: Assets/Scenes/Seoul.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

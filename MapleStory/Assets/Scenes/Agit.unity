@@ -2112,7 +2112,7 @@ GameObject:
   - component: {fileID: 779739240}
   m_Layer: 0
   m_Name: "\uC81C\uC774"
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2223,12 +2223,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 779739235}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 763606a4731de77428a0c9083b2ba59c, type: 3}
+  m_Script: {fileID: 11500000, guid: 70d2f2fc83fa45e4bb3aba107a4019e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sentences: []
-  sprites: []
-  dialogueWindows: []
+  id: 1
+  isNpc: 1
 --- !u!1 &987637318
 GameObject:
   m_ObjectHideFlags: 0

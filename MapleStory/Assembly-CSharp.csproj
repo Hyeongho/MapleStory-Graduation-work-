@@ -82,12 +82,15 @@
     <Compile Include="Assets\Script\MoveScene\TransferMap.cs" />
     <Compile Include="Assets\Script\NPC\NPCManager.cs" />
     <Compile Include="Assets\Script\Player.cs" />
+    <Compile Include="Assets\Script\Quest\QuestData.cs" />
+    <Compile Include="Assets\Script\Quest\QuestManger.cs" />
     <Compile Include="Assets\Script\ReSpawn.cs" />
     <Compile Include="Assets\Script\Scriptable Objects\Armor.cs" />
     <Compile Include="Assets\Script\Scriptable Objects\Consume.cs" />
     <Compile Include="Assets\Script\Scriptable Objects\Equip.cs" />
     <Compile Include="Assets\Script\Scriptable Objects\Item.cs" />
     <Compile Include="Assets\Script\Scriptable Objects\Weapon.cs" />
+    <Compile Include="Assets\Script\Talk\TalkManager.cs" />
     <Compile Include="Assets\Script\Title\GameStart.cs" />
     <Compile Include="Assets\Script\Title\SelectChannel.cs" />
     <Compile Include="Assets\Script\Title\SlectChar.cs" />
@@ -100,6 +103,7 @@
     <Compile Include="Assets\Script\UI\Dialogue.cs" />
     <Compile Include="Assets\Script\UI\Inventory.cs" />
     <Compile Include="Assets\Script\UI\TextDialogue.cs" />
+    <Compile Include="Assets\Script\UI\UIController.cs" />
     <Compile Include="Assets\Script\YunaPlayer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />

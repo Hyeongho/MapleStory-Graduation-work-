@@ -23,113 +23,68 @@ public class DialogueManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public TextMeshProUGUI text;
-    public SpriteRenderer rendererSprite;
-    public SpriteRenderer rendererDialogueWindow;
+    public Image portraitImg;
 
-    public List<string> listSentences;
-    public List<Sprite> listSprites;
-    public List<Sprite> listDialogueWindows;
+    public TalkManager talkManager;
+    public TextMeshProUGUI talkText;
+    public GameObject scanObject;
+    public GameObject talkPanel;
+    public QuestManger questManger;
+    public bool isAction;
 
-    int count;
+    private int talkIndex;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        count = 0;
+        isAction = false;
+        talkIndex = 0;
 
-        text.text = "";
-
-        listSentences = new List<string>();
-        listSprites = new List<Sprite>();
-        listDialogueWindows = new List<Sprite>();
+        //questManger.ChexkQuest();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			count++;
-
-            text.text = "";
-
-			if (count != listSentences.Count - 1)
-			{
-                StopAllCoroutines();
-
-                ExitDialogue();
-            }
-
-			else
-			{
-                StopAllCoroutines();
-
-                StartCoroutine("StartDialogueCoroutine");
-            }
-		}
-    }
-
-    public void ShowDialogue(Dialogue dialog)
-    {
-        this.gameObject.SetActive(true);
-
-        for (int i = 0; i < dialog.sentences.Length; i++)
-        {
-            listSentences.Add(dialog.sentences[i]);
-            listSprites.Add(dialog.sprites[i]);
-            listDialogueWindows.Add(dialog.dialogueWindows[i]);
-        }
-
-        StartCoroutine("StartDialogueCoroutine");
-    }
-
-    public void ExitDialogue()
+    public void Action(GameObject _scanObject)
 	{
-        text.text = "";
-        count = 0;
+        scanObject = _scanObject;
+        NPCManager npcData = scanObject.GetComponent<NPCManager>();
+        Talk(npcData.id, npcData.isNpc);
 
-        listSentences.Clear();
-        listSprites.Clear();
-        listDialogueWindows.Clear();
-
-        this.gameObject.SetActive(false);
+        talkPanel.SetActive(isAction);
     }
 
-    IEnumerable StartDialogueCoroutine()
-    {
-		if (count > 0)
+    void Talk(int id, bool isNpc)
+	{
+        int questTalkIndex = questManger.GetQuestTalkIndex(id);
+
+        string talkData = talkManager.GetTalk(id + questTalkIndex, talkIndex);
+
+		if (talkData == null)
 		{
-            if (listDialogueWindows[count] != listDialogueWindows[count - 1])
-            {
-                rendererDialogueWindow.GetComponent<SpriteRenderer>().sprite = listDialogueWindows[count];
-                rendererSprite.GetComponent<SpriteRenderer>().sprite = listSprites[count];
-            }
+            isAction = false;
+            talkIndex = 0;
+            //questManger.ChexkQuest();
+            return;
+		}
 
-			else
-			{
-                if (listSprites[count] != listSprites[count - 1])
-                {
-                    rendererSprite.GetComponent<SpriteRenderer>().sprite = listSprites[count];
-                }
+		if (isNpc)
+		{
+            talkText.text = talkData.Split(':')[0];
 
-				else
-				{
-                    yield return new WaitForSeconds(0.05f);
-				}
-            }       
+            portraitImg.sprite = talkManager.GetPortrait(id, int.Parse(talkData.Split(':')[1]));
+
+            portraitImg.color = new Color(1, 1, 1, 1);
+
         }
 
 		else
 		{
-            rendererDialogueWindow.GetComponent<SpriteRenderer>().sprite = listDialogueWindows[count];
-            rendererSprite.GetComponent<SpriteRenderer>().sprite = listSprites[count];
+            talkText.text = talkData;
+
+            portraitImg.color = new Color(1, 1, 1, 0);
         }
-		
-        for (int i = 0; i < listSentences[count].Length; i++)
-        {
-            text.text += listSentences[count][i];
-            yield return new WaitForSeconds(0.01f);
-        }
-    }
+
+        isAction = true;
+        talkIndex++;
+	}
 }

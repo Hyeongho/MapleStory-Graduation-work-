@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TextDialogue : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class TextDialogue : MonoBehaviour
     public Dialogue dialogue;
 
     DialogueManager theDM;
+
+    public TextMeshProUGUI TMPtext;
+
+    public List<string> ListSentences;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +30,7 @@ public class TextDialogue : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Player")
 		{
-            theDM.ShowDialogue(dialogue);
+           // theDM.ShowDialogue(dialogue);
 		}
 	}
 }

@@ -12,6 +12,7 @@ TagManager:
   - Attack
   - CMCam
   - Range
+  - NPC
   layers:
   - Default
   - TransparentFX
