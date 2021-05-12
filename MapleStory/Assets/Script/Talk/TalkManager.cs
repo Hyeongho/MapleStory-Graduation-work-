@@ -9,10 +9,14 @@ public class TalkManager : MonoBehaviour
 
     public Sprite[] portraitArr;
 
+    Player isPlayer;
+
     private void Awake()
 	{
         talkData = new Dictionary<int, string[]>();
         portraitData = new Dictionary<int, Sprite>();
+
+        isPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
         GenerateData();
 
@@ -35,8 +39,16 @@ public class TalkManager : MonoBehaviour
         talkData.Add(1, new string[] { "제이 입니다:0", "asdsadas:0" });
 
 
-        //Quest Talk
-        talkData.Add(1 + 10, new string[] { "밖에 나가서 사람들좀 도와줘.:0" });
+		//Quest Talk
+		if (isPlayer.isKineis)
+		{
+            talkData.Add(1 + 10, new string[] { "유나가 너 찾아.:0" });
+        }
+
+		else if (isPlayer.isYuna)
+		{
+            talkData.Add(1 + 10, new string[] { "키네시스가 너 찾아.:0" });
+        }               
 
         portraitData.Add(1, portraitArr[0]);
 	}

@@ -8,8 +8,8 @@ public class Player : MonoBehaviour
 	DataManager dataManager;
 	DialogueManager dialogueManager;
 
-	bool isKineis = false;
-	bool IsYuna = false;
+	public bool isKineis = false;
+	public bool isYuna = false;
 
 	public float playerSpeed = 1.0f;
 
@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
 
 		else
 		{
-			IsYuna = true;
+			isYuna = true;
 		}
 
 		dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();

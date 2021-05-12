@@ -81,6 +81,7 @@
     <Compile Include="Assets\Script\MoveScene\StartPoint.cs" />
     <Compile Include="Assets\Script\MoveScene\TransferMap.cs" />
     <Compile Include="Assets\Script\NPC\NPCManager.cs" />
+    <Compile Include="Assets\Script\NPC\NPCSetActive.cs" />
     <Compile Include="Assets\Script\Player.cs" />
     <Compile Include="Assets\Script\Quest\QuestData.cs" />
     <Compile Include="Assets\Script\Quest\QuestManger.cs" />
@@ -324,6 +325,7 @@
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterial-Trans-CullBack.shader" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterial-Trans.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\NPC\키네시스\info.illustration2.face.frames\delay.txt" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterialSurface.cginc" />
     <None Include="Assets\UI\Portal\portal.game.pv.default.frames\delay.txt" />
     <None Include="Assets\Player\Yuna\Skill\101120203.effect_ple.loop.frames\delay.txt" />
@@ -361,6 +363,7 @@
     <None Include="Assets\UniGLTF\Resources\Shaders\NormalMapEncoder.shader" />
     <None Include="Assets\UniGLTF\Resources\Shaders\StandardVColor.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\Object\carkit_v1.4\License.txt" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterialOutline.shader" />
     <None Include="Assets\map\Agit\ani.0.frames\delay.txt" />
     <None Include="Assets\NPC\제이\1531001.img.say.frames\delay.txt" />
