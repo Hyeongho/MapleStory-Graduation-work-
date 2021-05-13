@@ -5296,8 +5296,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portraitArr:
-  - {fileID: 21300000, guid: d8dc845dc8d9f1b44829dd536c6f66ca, type: 3}
+  - {fileID: 21300000, guid: f679d58e9c84a7349848448c76af143d, type: 3}
   - {fileID: 21300000, guid: 24af906f61614794694233607795c33f, type: 3}
+  - {fileID: 21300000, guid: eea55dfcf216aa84f900621c66ff44c8, type: 3}
 --- !u!4 &823016827
 Transform:
   m_ObjectHideFlags: 0
@@ -9819,6 +9820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questId: 10
+  questActionIndex: 0
 --- !u!4 &1578756084
 Transform:
   m_ObjectHideFlags: 0

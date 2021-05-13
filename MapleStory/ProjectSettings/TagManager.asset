@@ -13,6 +13,7 @@ TagManager:
   - CMCam
   - Range
   - NPC
+  - Skill
   layers:
   - Default
   - TransparentFX

@@ -31,6 +31,9 @@ public class Player : MonoBehaviour
 	Animator PS2; //PsychicSmashing2
 	Animator playerAni;
 
+	Animator skillAni;
+	GameObject Skill;
+
 	GameObject BasicAttack;
 	GameObject PsychicSmashing2;
 
@@ -90,6 +93,18 @@ public class Player : MonoBehaviour
 			PsychicSmashing2.SetActive(false);
 		}
 
+		else if (isYuna)
+		{
+			attackAni = GameObject.FindGameObjectWithTag("Attack").GetComponent<Animator>();
+			BasicAttack = GameObject.FindGameObjectWithTag("Attack");
+
+			skillAni = GameObject.FindGameObjectWithTag("Skill").GetComponent<Animator>();
+			Skill = GameObject.FindGameObjectWithTag("Skill");
+
+			BasicAttack.SetActive(false);
+			Skill.SetActive(false);
+		}
+
 		playerAni = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
 		
 		isAttack = false;
@@ -114,6 +129,8 @@ public class Player : MonoBehaviour
 		{
 			if (Input.GetKeyDown(KeyCode.Space))
 			{
+				Debug.Log(scanObject.name);
+
 				dialogueManager.Action(scanObject);
 			}
 		}
@@ -228,6 +245,15 @@ public class Player : MonoBehaviour
 				}
 			}
 		}
+
+		else if (isYuna)
+		{
+			if (Input.GetKeyDown(KeyCode.LeftControl))
+			{
+				BasicAttack.SetActive(true);
+				attackAni.SetBool("isAttack", true);
+			}
+		}
 	
 	}
 
@@ -265,6 +291,8 @@ public class Player : MonoBehaviour
 			tagNpc = true;
 
 			scanObject = other.gameObject;
+
+			Debug.Log(other.gameObject.name);
 
 			Debug.Log("tag");			
 		}

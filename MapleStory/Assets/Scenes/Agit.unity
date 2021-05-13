@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 64104186}
   m_Layer: 0
   m_Name: Plane160 (5)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 159643056}
   m_Layer: 0
   m_Name: Plane160 (5)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 225421568}
   m_Layer: 0
   m_Name: Plane160 (10)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -925,7 +925,7 @@ GameObject:
   - component: {fileID: 275529246}
   m_Layer: 0
   m_Name: Plane160
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1171,7 +1171,7 @@ GameObject:
   - component: {fileID: 337757623}
   m_Layer: 0
   m_Name: Plane160 (8)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1265,7 +1265,7 @@ GameObject:
   - component: {fileID: 384606916}
   m_Layer: 0
   m_Name: Plane160 (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1359,7 +1359,7 @@ GameObject:
   - component: {fileID: 435609462}
   m_Layer: 0
   m_Name: Plane160 (6)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1453,7 +1453,7 @@ GameObject:
   - component: {fileID: 441341512}
   m_Layer: 0
   m_Name: Plane160 (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1547,7 +1547,7 @@ GameObject:
   - component: {fileID: 479305689}
   m_Layer: 0
   m_Name: Plane160 (14)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1641,7 +1641,7 @@ GameObject:
   - component: {fileID: 565292689}
   m_Layer: 0
   m_Name: Plane160 (4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1735,7 +1735,7 @@ GameObject:
   - component: {fileID: 575809853}
   m_Layer: 0
   m_Name: Plane160 (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1829,7 +1829,7 @@ GameObject:
   - component: {fileID: 633890647}
   m_Layer: 0
   m_Name: Plane160 (7)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1923,7 +1923,7 @@ GameObject:
   - component: {fileID: 659440321}
   m_Layer: 0
   m_Name: Plane160 (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2017,7 +2017,7 @@ GameObject:
   - component: {fileID: 712787794}
   m_Layer: 0
   m_Name: Plane160 (7)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2226,7 +2226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70d2f2fc83fa45e4bb3aba107a4019e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 1
+  id: 1000
   isNpc: 1
 --- !u!1 &987637318
 GameObject:
@@ -2422,7 +2422,7 @@ GameObject:
   - component: {fileID: 1058975082}
   m_Layer: 0
   m_Name: Plane160 (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2614,7 +2614,7 @@ GameObject:
   - component: {fileID: 1283950631}
   m_Layer: 0
   m_Name: Plane160 (12)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2708,7 +2708,7 @@ GameObject:
   - component: {fileID: 1302153477}
   m_Layer: 0
   m_Name: Plane160 (4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2876,7 +2876,7 @@ GameObject:
   - component: {fileID: 1416757428}
   m_Layer: 0
   m_Name: Plane160 (13)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3055,10 +3055,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1436839080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1e3732fbb26ea4468047ea2864c30a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c6ea6f1fdf2580419b274ae5f21f0f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPoint: Agit
+  transferMapName: Feild1
+--- !u!65 &1436839082
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436839080}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.04, y: 1.42, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1444754670
 GameObject:
   m_ObjectHideFlags: 0
@@ -3073,7 +3086,7 @@ GameObject:
   - component: {fileID: 1444754674}
   m_Layer: 0
   m_Name: Plane160 (9)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3221,7 +3234,7 @@ GameObject:
   - component: {fileID: 1614581121}
   m_Layer: 0
   m_Name: Plane160 (6)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3315,7 +3328,7 @@ GameObject:
   - component: {fileID: 1681155669}
   m_Layer: 0
   m_Name: Plane160
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3490,7 +3503,7 @@ GameObject:
   - component: {fileID: 1734468721}
   m_Layer: 0
   m_Name: Plane160 (11)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3584,7 +3597,7 @@ GameObject:
   - component: {fileID: 1752503060}
   m_Layer: 0
   m_Name: Plane160 (15)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3901,7 +3914,7 @@ GameObject:
   - component: {fileID: 1953544833}
   m_Layer: 0
   m_Name: Plane160 (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

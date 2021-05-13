@@ -4,34 +4,50 @@ using UnityEngine;
 
 public class QuestManger : MonoBehaviour
 {
+    public static QuestManger instance;
+
     public int questId;
     public int questActionIndex;
+
+    Player isPlayer;
 
     Dictionary<int, QuestData> questList;
 
 	private void Awake()
 	{
+        if (instance == null)
+        {
+            instance = this;
+        }
+
+        else if (instance != null)
+        {
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
+
         questList = new Dictionary<int, QuestData>();
+
+        isPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
         GenerataData();
 	}
 
-	// Start is called before the first frame update
-	void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void GenerataData()
 	{
-        questList.Add(10, new QuestData("밖으로 나가기", new int[] {1, 2}));
-	}
+		if (isPlayer.isKineis)
+		{
+            questList.Add(10, new QuestData("키네시스", new int[] { 1000, 2000 }));
+        }
+
+		else if (isPlayer.isYuna)
+		{
+            questList.Add(10, new QuestData("유나", new int[] { 1000, 3000 }));
+        }
+
+        questList.Add(20, new QuestData("퀘스트 클리어", new int[] { 0 }));
+    }
 
     public int GetQuestTalkIndex(int id)
 	{

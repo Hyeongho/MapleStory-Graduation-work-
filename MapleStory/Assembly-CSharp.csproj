@@ -349,6 +349,7 @@
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterial.shader" />
     <None Include="Assets\Object\kenney_citykitroads\License.txt" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterialVertFrag.cginc" />
+    <None Include="Assets\Customizable Skybox\Stylized Sky\Shaders\Stylized Sky.shader" />
     <None Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\PMDMaterial\Shaders\MeshPmdMaterialOutline-NoCastShadow.shader" />
     <None Include="Assets\Sprite\164001000.effect0.frames\delay.txt" />
     <None Include="Assets\UniGLTF\UniUnlit\Resources\UniUnlit.shader" />

@@ -41,13 +41,17 @@ public class DialogueManager : MonoBehaviour
         isAction = false;
         talkIndex = 0;
 
-        //questManger.ChexkQuest();
+        Debug.Log(questManger.ChexkQuest());
     }
 
     public void Action(GameObject _scanObject)
 	{
         scanObject = _scanObject;
         NPCManager npcData = scanObject.GetComponent<NPCManager>();
+
+        Debug.Log(npcData.id);
+        Debug.Log(npcData.isNpc);
+
         Talk(npcData.id, npcData.isNpc);
 
         talkPanel.SetActive(isAction);
@@ -59,17 +63,21 @@ public class DialogueManager : MonoBehaviour
 
         string talkData = talkManager.GetTalk(id + questTalkIndex, talkIndex);
 
+        Debug.Log(id);
+
 		if (talkData == null)
 		{
             isAction = false;
             talkIndex = 0;
-            //questManger.ChexkQuest();
+            questManger.ChexkQuest(id);
             return;
 		}
 
 		if (isNpc)
 		{
             talkText.text = talkData.Split(':')[0];
+
+            Debug.Log(int.Parse(talkData.Split(':')[1]));
 
             portraitImg.sprite = talkManager.GetPortrait(id, int.Parse(talkData.Split(':')[1]));
 

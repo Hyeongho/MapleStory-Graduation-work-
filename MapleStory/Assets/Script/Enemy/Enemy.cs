@@ -30,6 +30,8 @@ public class Enemy : MonoBehaviour
 
 	public Image hpBar;
 
+	bool isDamage;
+
 	private void Awake()
 	{
 		Player = GameObject.FindWithTag("Player");
@@ -37,6 +39,7 @@ public class Enemy : MonoBehaviour
 		rig = this.gameObject.GetComponent<Rigidbody>();
 
 		EnemyHP = maxHp;
+		isDamage = false;
 	}
 
 	private void Start()
@@ -115,6 +118,16 @@ public class Enemy : MonoBehaviour
 
 				int reaction = Player.transform.position.x - this.gameObject.transform.position.x > 0 ? 1 : -1;
 				Player.GetComponent<Rigidbody>().AddForce(new Vector3(reaction, 0.5f, 0) * 2.5f, ForceMode.Impulse);
+			}
+
+			if (col.gameObject.CompareTag("Attack"))
+			{
+				isDamage = true;
+			}
+
+			else if (col.gameObject.CompareTag("Skill"))
+			{
+				isDamage = true;
 			}
 		}	
 	}

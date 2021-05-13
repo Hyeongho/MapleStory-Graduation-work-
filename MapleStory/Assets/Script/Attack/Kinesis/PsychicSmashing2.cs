@@ -10,7 +10,7 @@ public class PsychicSmashing2 : MonoBehaviour
 
 	Player player;
 
-	GameObject Enemy;
+	Enemy Enemy;
 
 	bool playerAttack;
 
@@ -22,7 +22,7 @@ public class PsychicSmashing2 : MonoBehaviour
 	{
 		player = GameObject.FindWithTag("Player").GetComponent<Player>();
 
-		Enemy = GameObject.FindGameObjectWithTag("Enemy");
+		Enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>();
 	}
 
 	// Start is called before the first frame update
@@ -62,12 +62,12 @@ public class PsychicSmashing2 : MonoBehaviour
 	{
 		if (isDamge)
 		{
-			EnemyHP -= 10.0f;
+			Enemy.EnemyHP -= 10.0f;
 
-			for (int i = 0; i < GameObject.FindWithTag("Player").GetComponent<Player>().enemyList.Count; i++)
+			for (int i = 0; i < player.enemyList.Count; i++)
 			{
-				GameObject.FindWithTag("Player").GetComponent<Player>().enemyList[i].GetComponent<Enemy>().EnemyHP -= 10;
-				GameObject.FindWithTag("Player").GetComponent<Player>().enemyList[i].GetComponent<Enemy>().TakeDamage(10);
+				player.enemyList[i].GetComponent<Enemy>().EnemyHP -= 10;
+				player.enemyList[i].GetComponent<Enemy>().TakeDamage(10);
 
 				int reaction = Enemy.transform.position.x - player.transform.position.x > 0 ? 1 : -1;
 				Enemy.GetComponent<Rigidbody>().AddForce(new Vector3(reaction, 0, 0) * 5.0f, ForceMode.Impulse);
@@ -80,7 +80,7 @@ public class PsychicSmashing2 : MonoBehaviour
 	{
 		if (col.CompareTag("Enemy"))
 		{
-			GameObject.FindWithTag("Player").GetComponent<Player>().enemyList.Add(col.gameObject);
+			player.enemyList.Add(col.gameObject);
 
 			isDamge = true;;
 		}
