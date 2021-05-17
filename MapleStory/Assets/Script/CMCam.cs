@@ -17,22 +17,8 @@ public class CMCam : MonoBehaviour
 
 	private void Awake()
 	{
-        //if (instance == null)
-        //{
-        //    instance = this;
-        //}
-
-        //else if (instance != null)
-        //{
-        //    return;
-        //}
-
-        //DontDestroyOnLoad(gameObject);
-
         camera = this.gameObject.GetComponent<CinemachineVirtualCamera>();
         Range = this.gameObject.GetComponent<CinemachineConfiner>();
-
-        Range.m_BoundingShape2D = GameObject.FindGameObjectWithTag("Range").GetComponent<PolygonCollider2D>();
         
     }
 

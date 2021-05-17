@@ -13,7 +13,6 @@ public class ReSpawn : MonoBehaviour
 	{
         player = Instantiate(charPrefabs[(int)DataManager.instance.currentCharacter]);
         player.transform.position = this.gameObject.transform.position;
-
     }
 
 	// Start is called before the first frame update

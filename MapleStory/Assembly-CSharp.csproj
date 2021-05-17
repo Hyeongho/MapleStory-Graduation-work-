@@ -74,6 +74,8 @@
     <Compile Include="Assets\Script\DialogueManager.cs" />
     <Compile Include="Assets\Script\Enemy\Drone.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy.cs" />
+    <Compile Include="Assets\Script\Enemy\EnemyController.cs" />
+    <Compile Include="Assets\Script\Enemy\EnemyData.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyHp.cs" />
     <Compile Include="Assets\Script\HPMP.cs" />
     <Compile Include="Assets\Script\Item\FieldItem.cs" />
@@ -311,6 +313,7 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
     <None Include="Assets\NPC\하얀마법사\info.illustration2.face.frames\delay.txt" />
+    <None Include="Assets\Object\Enemy\animated-characters-2\License.txt" />
     <None Include="Assets\NPC\제이\1531001.img.info.illustration2.face.frames\delay.txt" />
     <None Include="Assets\NPC\제이\1531001.img.eye.frames\delay.txt" />
     <None Include="Assets\Kevin Iglesias\3DCharacterDummy\Readme.txt" />

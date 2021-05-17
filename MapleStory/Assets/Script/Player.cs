@@ -250,8 +250,53 @@ public class Player : MonoBehaviour
 		{
 			if (Input.GetKeyDown(KeyCode.LeftControl))
 			{
+				isMove = false;
+
+				isAttack = true;
+
 				BasicAttack.SetActive(true);
-				attackAni.SetBool("isAttack", true);
+				playerAni.SetBool("isAttack", true);
+			}
+
+			else if (Input.GetKeyUp(KeyCode.LeftControl))
+			{
+				isAttack = false;
+			}
+
+			if (Input.GetKeyDown(KeyCode.LeftShift))
+			{
+				isMove = false;
+
+				isAttack = true;
+
+				Skill.SetActive(true);
+				playerAni.SetBool("isAttack", true);
+			}
+
+			else if (Input.GetKeyUp(KeyCode.LeftShift))
+			{
+				isAttack = false;
+			}
+
+			if (!isAttack)
+			{
+				if (attackAni.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f)
+				{
+					playerAni.SetBool("isAttack", false);
+
+					BasicAttack.SetActive(false);
+
+					isMove = true;
+				}
+
+				if (skillAni.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f)
+				{
+					playerAni.SetBool("isAttack", false);
+
+					Skill.SetActive(false);
+
+					isMove = true;
+				}
 			}
 		}
 	
