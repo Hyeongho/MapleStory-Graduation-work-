@@ -66,6 +66,8 @@
   <ItemGroup>
     <Compile Include="Assets\Script\Attack\Kinesis\BasicAttack.cs" />
     <Compile Include="Assets\Script\Attack\Kinesis\PsychicSmashing2.cs" />
+    <Compile Include="Assets\Script\Attack\Yuna\BasicAttackRange.cs" />
+    <Compile Include="Assets\Script\Attack\Yuna\SkillRange.cs" />
     <Compile Include="Assets\Script\Attack\Yuna\YunaAttack.cs" />
     <Compile Include="Assets\Script\CMCam.cs" />
     <Compile Include="Assets\Script\CameraMove.cs" />
@@ -74,6 +76,7 @@
     <Compile Include="Assets\Script\DialogueManager.cs" />
     <Compile Include="Assets\Script\Enemy\Drone.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy.cs" />
+    <Compile Include="Assets\Script\Enemy\EnemyAttack.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyController.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyData.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyHp.cs" />

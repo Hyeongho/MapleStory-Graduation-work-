@@ -3,8 +3,7 @@
 --- !u!1 &678588628296806869
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 3920270117625906163, guid: 44ea5f9f097a9da4fa69b2fb43eae263,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
@@ -13,8 +12,6 @@ GameObject:
   - component: {fileID: 1999405018549170964}
   - component: {fileID: 6298776833482812165}
   - component: {fileID: 4535025726308481028}
-  - component: {fileID: 678588628296806868}
-  - component: {fileID: 678588628296806859}
   m_Layer: 0
   m_Name: Potal_Rnage
   m_TagString: Untagged
@@ -25,8 +22,7 @@ GameObject:
 --- !u!4 &6358349028321393443
 Transform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2794975786258022644, guid: 44ea5f9f097a9da4fa69b2fb43eae263,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 678588628296806869}
@@ -41,8 +37,7 @@ Transform:
 --- !u!33 &1999405018549170964
 MeshFilter:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 5012578185635870295, guid: 44ea5f9f097a9da4fa69b2fb43eae263,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 678588628296806869}
@@ -50,8 +45,7 @@ MeshFilter:
 --- !u!23 &6298776833482812165
 MeshRenderer:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4102057352328197476, guid: 44ea5f9f097a9da4fa69b2fb43eae263,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 678588628296806869}
@@ -90,8 +84,7 @@ MeshRenderer:
 --- !u!65 &4535025726308481028
 BoxCollider:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 7066309139228950690, guid: 44ea5f9f097a9da4fa69b2fb43eae263,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 678588628296806869}
@@ -101,37 +94,10 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &678588628296806868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678588628296806869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c6ea6f1fdf2580419b274ae5f21f0f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transferMapName: Agit
---- !u!114 &678588628296806859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678588628296806869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1e3732fbb26ea4468047ea2864c30a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPoint: Feild1
 --- !u!1 &5633451555056626516
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4072808964473446324, guid: 44ea5f9f097a9da4fa69b2fb43eae263,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
@@ -149,8 +115,7 @@ GameObject:
 --- !u!4 &5586484506441867363
 Transform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4072808964473446323, guid: 44ea5f9f097a9da4fa69b2fb43eae263,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5633451555056626516}
@@ -164,8 +129,7 @@ Transform:
 --- !u!212 &6625395595539315985
 SpriteRenderer:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4072808964473446322, guid: 44ea5f9f097a9da4fa69b2fb43eae263,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5633451555056626516}
@@ -216,8 +180,7 @@ SpriteRenderer:
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4072808964473446325, guid: 44ea5f9f097a9da4fa69b2fb43eae263,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5633451555056626516}

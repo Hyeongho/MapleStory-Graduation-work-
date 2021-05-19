@@ -11,14 +11,12 @@ public class EnemyController : MonoBehaviour
 
     bool isTargeting = false;
 
-	public Transform target;
-	public Vector3 targetPosition;
+	Transform target;
+	Vector3 targetPosition;
 
 	public Vector3 direction;
 	public float velocity;
 	public float accelaration;
-
-	private float playerHP;
 
 	public float EnemyHP;
 	public float maxHp;
@@ -30,9 +28,11 @@ public class EnemyController : MonoBehaviour
 
 	public Image hpBar;
 
-	bool isDamage;
-
 	Animator EnemyAni;
+
+	public int damage = 10;
+
+	public GameObject EnemyAtk;
 
 	// Start is called before the first frame update
 	void Start()
@@ -40,6 +40,8 @@ public class EnemyController : MonoBehaviour
         NewX = Random.Range(2.0f, 20.0f);
 
 		EnemyAni = this.gameObject.GetComponentInChildren<Animator>();
+
+		target = GameObject.FindWithTag("Player").transform;
 
 	}
 
@@ -53,7 +55,7 @@ public class EnemyController : MonoBehaviour
 
 		else
 		{
-			MoveToTarget();
+			
 		}
     }
 
@@ -69,7 +71,8 @@ public class EnemyController : MonoBehaviour
 			this.gameObject.transform.eulerAngles = new Vector3(0, -90, 0);
 		}
 
-        this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, new Vector3(NewX, this.gameObject.transform.position.y, this.gameObject.transform.position.z), speed);
+        this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, 
+			new Vector3(NewX, this.gameObject.transform.position.y, this.gameObject.transform.position.z), speed);
 
 		EnemyAni.SetBool("isMove", true);
 
@@ -81,41 +84,15 @@ public class EnemyController : MonoBehaviour
 
     void MoveToTarget()
 	{
-		if (GameObject.FindWithTag("Player").activeSelf)
+		if (target.gameObject.activeSelf)
 		{
-			target = GameObject.FindWithTag("Player").transform;
+			//targetPosition = new Vector3(target.position.x, this.gameObject.transform.position.y, target.position.z);
 
-			targetPosition = new Vector3(target.position.x, this.gameObject.transform.position.y, target.position.z);
+			//this.transform.LookAt(targetPosition);
 
-			direction = (target.position - transform.position).normalized;
+			//this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position,
+			//	new Vector3(target.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z), speed);
 
-			velocity = velocity * Time.deltaTime;
-
-			float distance = Vector3.Distance(target.position, transform.position);
-
-			if (distance <= 4.0f)
-			{
-				isTargeting = true;
-
-				velocity = 0.01f;
-
-				this.transform.LookAt(targetPosition);
-
-				this.transform.position = new Vector3(transform.position.x + (direction.x * velocity), transform.position.y, transform.position.z);
-			}
-
-			else if (distance <= 0.5f)
-			{
-				
-			}
-
-			// 일정거리 밖에 있을 시, 속도 초기화 
-			else
-			{
-				isTargeting = false;
-
-				velocity = 0.0f;
-			}
 		}
 
 		else
@@ -124,13 +101,27 @@ public class EnemyController : MonoBehaviour
 		}
 	}
 
-	public void AttackStart()
+	private void OnTriggerEnter(Collider other)
 	{
+		if (other.gameObject.CompareTag("Player"))
+		{
+			targetPosition = new Vector3(target.position.x, this.gameObject.transform.position.y, target.position.z);
 
+			this.transform.LookAt(targetPosition);
+
+			EnemyAni.SetBool("isAttack", true);
+
+			isTargeting = true;
+		}
 	}
 
-	public void AttackEnd()
+	private void OnTriggerExit(Collider other)
 	{
+		if (other.gameObject.CompareTag("Player"))
+		{
+			EnemyAni.SetBool("isAttack", false);
 
+			isTargeting = false;
+		}
 	}
 }

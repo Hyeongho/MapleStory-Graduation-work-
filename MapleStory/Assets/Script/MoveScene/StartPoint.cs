@@ -5,6 +5,7 @@ using UnityEngine;
 public class StartPoint : MonoBehaviour
 {
     public string startPoint;
+    public string pastPoint;
 
     Player player;
 
@@ -13,7 +14,7 @@ public class StartPoint : MonoBehaviour
     {
         player = FindObjectOfType<Player>();
 
-		if (startPoint == player.currentMapName)
+		if ((startPoint == player.currentMapName) && (pastPoint == player.pastMapName))
 		{
             player.transform.position = this.gameObject.transform.position;
 		}

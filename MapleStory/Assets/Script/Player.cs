@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +16,9 @@ public class Player : MonoBehaviour
 
 	public float HP;
 	public float MP;
+
+	public float curHP;
+	public float curMP;
 
 	public float ATK;
 
@@ -48,11 +52,18 @@ public class Player : MonoBehaviour
 	public List<GameObject> enemyList = new List<GameObject>();
 
 	public string currentMapName;
+	public string pastMapName;
 
 	GameObject scanObject;
 
+	bool isHurt;
+
+	bool isKnockBack;
+
 	private void Awake()
 	{
+		curHP = HP;
+
 		DontDestroyOnLoad(this.gameObject);
 
 		rb = GetComponent<Rigidbody>();
@@ -76,6 +87,10 @@ public class Player : MonoBehaviour
 		tagNpc = false;
 
 		isGrounded = false;
+
+		isHurt = false;
+
+		isKnockBack = false;
 
 		rb = GetComponent<Rigidbody>();
 		jumpCount = 0.0f;
@@ -329,6 +344,71 @@ public class Player : MonoBehaviour
 		Debug.Log(damage);
 	}
 
+	void Hurt(int _damage, Vector3 _pos)
+	{
+		if (!isHurt)
+		{
+			isHurt = true;
+
+			curHP = curHP - _damage;
+
+			if (curHP <= 0)
+			{
+
+			}
+
+			else
+			{
+				float x = transform.position.x - _pos.x;
+
+				if (x < 0)
+				{
+					x = 1;
+				}
+
+				else
+				{
+					x = -1;
+				}
+
+				StartCoroutine(KnockBack(x));
+				StartCoroutine(HurtRoutine());
+			}
+		}
+	}
+
+	IEnumerator KnockBack(float dir)
+	{
+		isKnockBack = true;
+
+		float ctime = 0.0f;
+
+		while (ctime < 0.2f)
+		{
+			if (transform.rotation.y == 90.0f)
+			{
+				transform.Translate(Vector3.forward * playerSpeed * Time.deltaTime * dir);
+			}
+
+			else
+			{
+				transform.Translate(Vector3.forward * playerSpeed * Time.deltaTime * -1.0f * dir);
+			}
+
+			ctime += Time.deltaTime;
+			yield return null;
+		}
+
+		isKnockBack = false;
+	}
+
+	IEnumerator HurtRoutine()
+	{
+		yield return new WaitForSeconds(5.0f);
+
+		isHurt = false;
+	}
+
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.CompareTag("NPC"))
@@ -340,6 +420,11 @@ public class Player : MonoBehaviour
 			Debug.Log(other.gameObject.name);
 
 			Debug.Log("tag");			
+		}
+
+		if (other.gameObject.CompareTag("EnemyAtk"))
+		{
+			Hurt(other.GetComponentInParent<EnemyController>().damage, other.transform.position);
 		}
 	}
 

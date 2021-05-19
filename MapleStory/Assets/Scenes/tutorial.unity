@@ -12125,6 +12125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transferMapName: Agit
+  pastMapName: tutorial
 --- !u!1001 &2019141738
 PrefabInstance:
   m_ObjectHideFlags: 0

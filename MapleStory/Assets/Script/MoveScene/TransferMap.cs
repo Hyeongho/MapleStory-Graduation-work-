@@ -7,6 +7,8 @@ public class TransferMap : MonoBehaviour
 {
     public string transferMapName;
 
+    public string pastMapName;
+
     Player player;
 
     bool isPortal;
@@ -24,6 +26,8 @@ public class TransferMap : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.UpArrow) && isPortal)
         {
+            player.pastMapName = player.currentMapName;
+
             player.currentMapName = transferMapName;
 
             SceneManager.LoadScene(transferMapName);

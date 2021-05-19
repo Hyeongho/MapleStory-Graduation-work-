@@ -3579,13 +3579,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9130dfb6e1c7386408598af66176ed6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isKineis: 0
+  isYuna: 0
   playerSpeed: 5
   HP: 100
   MP: 100
-  ATK: 50
+  curHP: 0
+  curMP: 0
+  ATK: 10
   isAttack: 0
   hubDamageText: {fileID: 3585863616873076907, guid: 3ed29ddd646f04546b2933fdc3ae251e,
     type: 3}
   hubPos: {fileID: 927527902328761942}
   enemyList: []
-  currentMapName: 
+  currentMapName: tutorial
+  pastMapName: 

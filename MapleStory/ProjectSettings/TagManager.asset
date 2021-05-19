@@ -14,6 +14,9 @@ TagManager:
   - Range
   - NPC
   - Skill
+  - EnemyAtk
+  - SkillRange
+  - BasicAttackRange
   layers:
   - Default
   - TransparentFX

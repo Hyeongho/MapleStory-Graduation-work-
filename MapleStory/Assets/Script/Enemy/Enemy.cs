@@ -14,7 +14,6 @@ public class Enemy : MonoBehaviour
 
 	private float playerHP;
 
-
 	public float EnemyHP;
 	public float maxHp;
 
@@ -32,6 +31,9 @@ public class Enemy : MonoBehaviour
 
 	bool isDamage;
 
+	bool isHurt;
+	bool isKnockBack;
+
 	private void Awake()
 	{
 		Player = GameObject.FindWithTag("Player");
@@ -40,11 +42,14 @@ public class Enemy : MonoBehaviour
 
 		EnemyHP = maxHp;
 		isDamage = false;
+
+		isHurt = false;
+		isKnockBack = false;
 	}
 
 	private void Start()
 	{
-		playerHP = GameObject.FindWithTag("Player").GetComponent<Player>().HP;
+		playerHP = GameObject.FindWithTag("Player").GetComponent<Player>().curHP;
 
 		isDestroy = false;
 		isTargeting = false;
@@ -107,27 +112,100 @@ public class Enemy : MonoBehaviour
 		
 	}
 
+	void Hurt(float _damage, Vector3 _pos)
+	{
+		if (!isHurt)
+		{
+			isHurt = true;
+
+			EnemyHP = EnemyHP - _damage;
+
+			TakeDamage((int)_damage);
+
+			if (EnemyHP <= 0)
+			{
+
+			}
+
+			else
+			{
+				float x = transform.position.x - _pos.x;
+
+				if (x < 0)
+				{
+					x = 1;
+				}
+
+				else
+				{
+					x = -1;
+				}
+
+				StartCoroutine(KnockBack(x));
+				StartCoroutine(HurtRoutine());
+			}
+		}
+	}
+
+	IEnumerator KnockBack(float dir)
+	{
+		isKnockBack = true;
+
+		float ctime = 0.0f;
+
+		int reaction = this.transform.position.x - Player.transform.position.x > 0 ? 1 : -1;
+
+		while (ctime < 0.2f)
+		{
+			if (transform.rotation.y == 90.0f)
+			{
+				this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(reaction, 0.0f, 0) * 0.5f, ForceMode.Impulse);
+
+				//transform.Translate(Vector3.forward * velocity * Time.deltaTime * dir);
+			}
+
+			else
+			{
+				this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(reaction, 0.0f, 0) * 0.5f, ForceMode.Impulse);
+
+				//transform.Translate(Vector3.forward * velocity * Time.deltaTime * -1.0f * dir);
+			}
+
+			ctime += Time.deltaTime;
+			yield return null;
+		}
+
+		isKnockBack = false;
+	}
+
+	IEnumerator HurtRoutine()
+	{
+		yield return new WaitForSeconds(0.2f);
+
+		isHurt = false;
+	}
+
 	private void OnTriggerEnter(Collider col)
 	{
 		if (!isDestroy)
 		{
 			if (col.gameObject.tag == "Player")
 			{
-				Player.GetComponent<Player>().HP -= 10;
+				Player.GetComponent<Player>().curHP -= 10;
 				Player.GetComponent<Player>().TakeDamage(10);
 
 				int reaction = Player.transform.position.x - this.gameObject.transform.position.x > 0 ? 1 : -1;
 				Player.GetComponent<Rigidbody>().AddForce(new Vector3(reaction, 0.5f, 0) * 2.5f, ForceMode.Impulse);
 			}
 
-			if (col.gameObject.CompareTag("Attack"))
+			if (col.gameObject.CompareTag("BasicAttackRange"))
 			{
-				isDamage = true;
+				Hurt(col.GetComponentInParent<Player>().ATK, col.transform.position);
 			}
 
-			else if (col.gameObject.CompareTag("Skill"))
+			else if (col.gameObject.CompareTag("SkillRange"))
 			{
-				isDamage = true;
+				Hurt(col.GetComponentInParent<Player>().ATK, col.transform.position);
 			}
 		}	
 	}

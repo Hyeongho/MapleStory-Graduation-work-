@@ -39,7 +39,7 @@ public class HPMP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		hp = GameObject.FindWithTag("Player").GetComponent<Player>().HP;
+		hp = GameObject.FindWithTag("Player").GetComponent<Player>().curHP;
 
 		HP.fillAmount = hp / maxHP;
 		MP.fillAmount = mp / maxMP;
