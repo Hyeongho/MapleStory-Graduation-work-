@@ -951,7 +951,7 @@ PrefabInstance:
     - target: {fileID: 6764553747033232121, guid: c55f93947f2b82849bcf17e27db982f2,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6764553747033232124, guid: c55f93947f2b82849bcf17e27db982f2,
         type: 3}
@@ -1043,7 +1043,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!114 &89519686
 MonoBehaviour:
@@ -1076,18 +1076,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e49106c29950b4b98aea0d3645ff78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 2
   speed: 0.01
   direction: {x: 0, y: 0, z: 0}
   velocity: 0.01
   accelaration: 0
   EnemyHP: 0
-  maxHp: 100
+  maxHp: 20
   hubDamageText: {fileID: 0}
   hubPos: {fileID: 0}
   isDestroy: 0
   hpBar: {fileID: 0}
   damage: 0
   EnemyAtk: {fileID: 0}
+--- !u!135 &89519689
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89519684}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1001 &98094144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3332,7 +3346,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!114 &309895502
 MonoBehaviour:
@@ -3365,18 +3379,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e49106c29950b4b98aea0d3645ff78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 2
   speed: 0.01
   direction: {x: 0, y: 0, z: 0}
   velocity: 0.01
   accelaration: 0
   EnemyHP: 0
-  maxHp: 100
+  maxHp: 20
   hubDamageText: {fileID: 0}
   hubPos: {fileID: 0}
   isDestroy: 0
   hpBar: {fileID: 0}
   damage: 0
   EnemyAtk: {fileID: 0}
+--- !u!135 &309895505
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309895500}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1 &328672018
 GameObject:
   m_ObjectHideFlags: 0
@@ -9015,7 +9043,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!114 &1258896039
 MonoBehaviour:
@@ -9048,18 +9076,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e49106c29950b4b98aea0d3645ff78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 2
   speed: 0.01
   direction: {x: 0, y: 0, z: 0}
   velocity: 0.01
   accelaration: 0
   EnemyHP: 0
-  maxHp: 100
+  maxHp: 20
   hubDamageText: {fileID: 0}
   hubPos: {fileID: 0}
   isDestroy: 0
   hpBar: {fileID: 0}
   damage: 0
   EnemyAtk: {fileID: 0}
+--- !u!135 &1258896042
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258896037}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1001 &1278090037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13308,12 +13350,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e49106c29950b4b98aea0d3645ff78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 2
   speed: 0.01
   direction: {x: 0, y: 0, z: 0}
   velocity: 0.01
   accelaration: 0
-  EnemyHP: 100
-  maxHp: 100
+  EnemyHP: 20
+  maxHp: 20
   hubDamageText: {fileID: 0}
   hubPos: {fileID: 0}
   isDestroy: 0
@@ -14932,7 +14975,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!114 &2043658961
 MonoBehaviour:
@@ -14965,18 +15008,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e49106c29950b4b98aea0d3645ff78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 2
   speed: 0.01
   direction: {x: 0, y: 0, z: 0}
   velocity: 0.01
   accelaration: 0
   EnemyHP: 0
-  maxHp: 100
+  maxHp: 20
   hubDamageText: {fileID: 0}
   hubPos: {fileID: 0}
   isDestroy: 0
   hpBar: {fileID: 0}
   damage: 0
   EnemyAtk: {fileID: 0}
+--- !u!135 &2043658964
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043658959}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1001 &2048229314
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15666,3 +15723,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44ea5f9f097a9da4fa69b2fb43eae263, type: 3}
+--- !u!1 &8098569853336664284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 678588628296806869, guid: 44ea5f9f097a9da4fa69b2fb43eae263,
+    type: 3}
+  m_PrefabInstance: {fileID: 8098569853336664283}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8098569853336664285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8098569853336664284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c6ea6f1fdf2580419b274ae5f21f0f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transferMapName: Feild1
+  pastMapName: 
+--- !u!114 &8098569853336664286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8098569853336664284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e3732fbb26ea4468047ea2864c30a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPoint: Feild2
+  pastPoint: Feild1

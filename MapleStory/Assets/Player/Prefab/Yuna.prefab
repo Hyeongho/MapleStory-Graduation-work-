@@ -3073,7 +3073,7 @@ GameObject:
   - component: {fileID: 6764553747033232124}
   - component: {fileID: 6764553747033232127}
   - component: {fileID: 6764553747033232126}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Yuna
   m_TagString: Player
   m_Icon: {fileID: 0}

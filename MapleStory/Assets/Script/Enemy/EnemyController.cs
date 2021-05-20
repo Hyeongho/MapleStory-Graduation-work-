@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : EnemyData
 {
     float NewX;
 
@@ -13,6 +13,8 @@ public class EnemyController : MonoBehaviour
 
 	Transform target;
 	Vector3 targetPosition;
+
+	GameObject Player;
 
 	public Vector3 direction;
 	public float velocity;
@@ -34,29 +36,45 @@ public class EnemyController : MonoBehaviour
 
 	public GameObject EnemyAtk;
 
+	QuestManger questManger;
+
+	bool isDie;
+
+	bool isHurt;
+	bool isKnockBack;
+
 	// Start is called before the first frame update
 	void Start()
     {
-        NewX = Random.Range(2.0f, 20.0f);
+		isDie = false;
+
+		NewX = Random.Range(2.0f, 20.0f);
 
 		EnemyAni = this.gameObject.GetComponentInChildren<Animator>();
 
 		target = GameObject.FindWithTag("Player").transform;
 
+		Player = GameObject.FindWithTag("Player");
+
+		questManger = GameObject.Find("Quest Manager").GetComponent<QuestManger>();
 	}
 
     // Update is called once per frame
     void Update()
     {
-		if (!isTargeting)
+		if (!isDie)
 		{
-			Move();
-        }
+			if (!isTargeting)
+			{
+				Move();
+			}
 
-		else
-		{
-			
+			else
+			{
+
+			}
 		}
+		
     }
 
     void Move()
@@ -82,23 +100,97 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void MoveToTarget()
+	void Hurt(float _damage, Vector3 _pos)
 	{
-		if (target.gameObject.activeSelf)
+		if (!isDie)
 		{
-			//targetPosition = new Vector3(target.position.x, this.gameObject.transform.position.y, target.position.z);
+			if (!isHurt)
+			{
+				isHurt = true;
 
-			//this.transform.LookAt(targetPosition);
+				EnemyHP = EnemyHP - _damage;
 
-			//this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position,
-			//	new Vector3(target.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z), speed);
+				//TakeDamage((int)_damage);
 
+				if (EnemyHP <= 0)
+				{
+					isDie = true;
+
+					EnemyAni.SetBool("isDie", true);
+
+					switch (questManger.questId)
+					{
+						case 10:
+							break;
+						case 20:
+							if (questManger.questActionIndex == 1 && ID == 2)
+							{
+								questManger.count++;
+							}
+							break;
+
+						default:
+							break;
+					}
+				}
+
+				else
+				{
+					float x = transform.position.x - _pos.x;
+
+					if (x < 0)
+					{
+						x = 1;
+					}
+
+					else
+					{
+						x = -1;
+					}
+
+					StartCoroutine(KnockBack(x));
+					StartCoroutine(HurtRoutine());
+				}
+			}	
+		}
+	}
+
+	IEnumerator KnockBack(float dir)
+	{
+		isKnockBack = true;
+
+		float ctime = 0.0f;
+
+		int reaction = this.transform.position.x - Player.transform.position.x > 0 ? 1 : -1;
+
+		while (ctime < 0.2f)
+		{
+			if (transform.rotation.y == 90.0f)
+			{
+				this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(reaction, 0.0f, 0) * 0.5f, ForceMode.Impulse);
+
+				//transform.Translate(Vector3.forward * velocity * Time.deltaTime * dir);
+			}
+
+			else
+			{
+				this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(reaction, 0.0f, 0) * 0.5f, ForceMode.Impulse);
+
+				//transform.Translate(Vector3.forward * velocity * Time.deltaTime * -1.0f * dir);
+			}
+
+			ctime += Time.deltaTime;
+			yield return null;
 		}
 
-		else
-		{
-			return;
-		}
+		isKnockBack = false;
+	}
+
+	IEnumerator HurtRoutine()
+	{
+		yield return new WaitForSeconds(0.2f);
+
+		isHurt = false;
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -113,6 +205,16 @@ public class EnemyController : MonoBehaviour
 
 			isTargeting = true;
 		}
+
+		if (other.gameObject.CompareTag("BasicAttackRange"))
+		{
+			Hurt(other.GetComponentInParent<Player>().ATK, other.transform.position);
+		}
+
+		else if (other.gameObject.CompareTag("SkillRange"))
+		{
+			Hurt(other.GetComponentInParent<Player>().ATK, other.transform.position);
+		}
 	}
 
 	private void OnTriggerExit(Collider other)
@@ -123,5 +225,13 @@ public class EnemyController : MonoBehaviour
 
 			isTargeting = false;
 		}
+	}
+
+	public void TakeDamage(int damage)
+	{
+		GameObject hubText = Instantiate(hubDamageText);
+		hubText.transform.position = hubPos.position;
+		hubText.GetComponent<DamageText>().damage = damage;
+		Debug.Log(damage);
 	}
 }

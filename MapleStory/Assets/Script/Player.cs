@@ -354,7 +354,7 @@ public class Player : MonoBehaviour
 
 			if (curHP <= 0)
 			{
-
+				
 			}
 
 			else
