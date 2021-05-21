@@ -78,6 +78,7 @@
     <Compile Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Editor\MMDLoader\Private\AvatarSettingScript.cs" />
     <Compile Include="Assets\UniGLTF\UniJSON\Editor\Tests\JsonParserTest.cs" />
     <Compile Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Editor\Config\ConfigWindow.cs" />
+    <Compile Include="Assets\TopDown 2D RPG BE3\ReadMe\Scripts\Editor\ReadmeEditorBE3.cs" />
     <Compile Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Editor\Inspector\VMDScriptableObject.cs" />
     <Compile Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Editor\MMDLoader\Private\PMXLoaderScript.cs" />
     <Compile Include="Assets\UniGLTF\Core\Scripts\Editor\UniGLTFVersionMenu.cs" />
@@ -116,7 +117,6 @@
     <Compile Include="Assets\UniGLTF\UniJSON\Editor\Tests\ValidatorTests.cs" />
     <Compile Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Editor\MMDLoader\Private\VMDLoaderScript.cs" />
     <Compile Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Editor\Inspector\PMDScriptableObject.cs" />
-    <Compile Include="Assets\TopDown 2D RPG BE3\ReadMe\Scripts\Editor\ReadmeEditorBE3.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

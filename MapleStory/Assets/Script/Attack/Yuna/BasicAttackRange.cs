@@ -6,6 +6,15 @@ public class BasicAttackRange : MonoBehaviour
 {
     public GameObject BasicAttack;
 
+	public AudioClip sound;
+
+	AudioSource audioSource;
+
+	private void Start()
+	{
+		audioSource = GetComponent<AudioSource>();
+	}
+
 	public void StartAttack()
 	{
 		BasicAttack.SetActive(true);
@@ -14,5 +23,11 @@ public class BasicAttackRange : MonoBehaviour
 	public void EndAttack()
 	{
 		BasicAttack.SetActive(false);
+	}
+
+	public void PlaySound()
+	{
+		audioSource.clip = sound;
+		audioSource.Play();
 	}
 }

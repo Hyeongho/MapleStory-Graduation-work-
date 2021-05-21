@@ -7,4 +7,5 @@ using UnityEngine;
 public class EnemyData : MonoBehaviour
 {
     public int ID;
+    public int Exp;
 }

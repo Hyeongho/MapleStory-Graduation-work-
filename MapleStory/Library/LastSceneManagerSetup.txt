@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/TopDown 2D RPG BE3/Demo/Demo.unity
+- path: Assets/Scenes/tutorial.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

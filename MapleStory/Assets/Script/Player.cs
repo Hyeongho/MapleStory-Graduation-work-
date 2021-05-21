@@ -22,6 +22,11 @@ public class Player : MonoBehaviour
 
 	public float ATK;
 
+	int Lv;
+
+	public float EXP;
+	public float curEXP;
+
 	private bool isGrounded;
 	private float jumpCount = 2.0f;
 
@@ -63,6 +68,12 @@ public class Player : MonoBehaviour
 	private void Awake()
 	{
 		curHP = HP;
+
+		EXP = 15;
+
+		curEXP = 0;
+
+		Lv = 1;
 
 		DontDestroyOnLoad(this.gameObject);
 
@@ -148,6 +159,21 @@ public class Player : MonoBehaviour
 
 				dialogueManager.Action(scanObject);
 			}
+		}
+
+		if (curEXP >= EXP)
+		{
+			Lv++;
+
+			HP = HP + 20;
+			MP = MP + 20;
+
+			curHP = HP;
+			curMP = MP;
+
+			curEXP = 0;
+			EXP = Mathf.Round(EXP + (EXP * 1.5f));
+
 		}
 	}
 

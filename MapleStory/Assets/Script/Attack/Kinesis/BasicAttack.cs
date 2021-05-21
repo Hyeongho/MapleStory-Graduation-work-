@@ -18,6 +18,10 @@ public class BasicAttack : MonoBehaviour
 
 	Enemy enemy;
 
+	public AudioClip sound;
+
+	AudioSource audioSource;
+
 	private void Awake()
 	{
 		player = GameObject.FindWithTag("Player").GetComponent<Player>();
@@ -29,7 +33,9 @@ public class BasicAttack : MonoBehaviour
 	void Start()
     {
 		anim = GameObject.FindWithTag("Attack").GetComponent<Animator>();
-		Attack = GameObject.FindWithTag("Attack");	
+		Attack = GameObject.FindWithTag("Attack");
+
+		audioSource = GetComponent<AudioSource>();
 
 		isDamge = false;
 	}
@@ -84,5 +90,11 @@ public class BasicAttack : MonoBehaviour
 
 			isDamge = true;
 		}
+	}
+
+	public void PlaySound()
+	{
+		audioSource.clip = sound;
+		audioSource.Play();
 	}
 }

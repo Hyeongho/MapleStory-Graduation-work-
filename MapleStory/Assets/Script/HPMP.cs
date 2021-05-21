@@ -2,19 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HPMP : MonoBehaviour
 {
 	Image HP;
 	Image MP;
 
-	GameObject Player;
+	Player player;
 
 	public float hp;
 	float mp;
 
 	private float maxHP;
 	private float maxMP;
+
+	TextMeshProUGUI hpText;
+	TextMeshProUGUI mpText;
 
 	private void Awake()
 	{
@@ -24,7 +28,10 @@ public class HPMP : MonoBehaviour
 		HP = GameObject.Find("HP").GetComponent<Image>();
 		MP = GameObject.Find("MP").GetComponent<Image>();
 
-		Player = GameObject.FindWithTag("Player");
+		hpText = GameObject.Find("HPText").GetComponent<TextMeshProUGUI>();
+		mpText = GameObject.Find("MPText").GetComponent<TextMeshProUGUI>();
+
+		player = GameObject.FindWithTag("Player").GetComponent<Player>();
 
 		maxHP = hp;
 		maxMP = mp;
@@ -41,12 +48,15 @@ public class HPMP : MonoBehaviour
     {
 		hp = GameObject.FindWithTag("Player").GetComponent<Player>().curHP;
 
-		HP.fillAmount = hp / maxHP;
-		MP.fillAmount = mp / maxMP;
+		HP.fillAmount = player.curHP / player.HP;
+		MP.fillAmount = player.curMP / player.MP;
+
+		hpText.text = player.curHP.ToString() + " / " + player.HP.ToString();
+		mpText.text = player.curMP.ToString() + " / " + player.MP.ToString();
 
 		if (HP.fillAmount <= 0.0f)
-		{
-			Player.SetActive(false);
+		{	
+			player.gameObject.SetActive(false);
 		}
 	}
 }

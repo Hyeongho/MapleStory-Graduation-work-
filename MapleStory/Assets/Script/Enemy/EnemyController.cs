@@ -118,6 +118,8 @@ public class EnemyController : EnemyData
 
 					EnemyAni.SetBool("isDie", true);
 
+					Player.GetComponent<Player>().curEXP += Exp;
+
 					switch (questManger.questId)
 					{
 						case 10:

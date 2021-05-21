@@ -67,6 +67,7 @@
     <Compile Include="Assets\UniGLTF\Core\Scripts\IO\gltfExporter.cs" />
     <Compile Include="Assets\Script\Tutorial\TutorialJump.cs" />
     <Compile Include="Assets\UniGLTF\UniUnlit\Scripts\Utils.cs" />
+    <Compile Include="Assets\TopDown 2D RPG BE3\ReadMe\Scripts\ReadmeBE3.cs" />
     <Compile Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\Morph\UvMorph.cs" />
     <Compile Include="Assets\UniGLTF\DepthFirstScheduler\LockQueue.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
@@ -297,7 +298,8 @@
     <Compile Include="Assets\UniGLTF\UniHumanoid\PoseModifier\IPoseModifier.cs" />
     <Compile Include="Assets\UniGLTF\UniJSON\Scripts\JsonSchemaValidator\JsonArrayValidator.cs" />
     <Compile Include="Assets\Script\YunaPlayer.cs" />
-    <Compile Include="Assets\TopDown 2D RPG BE3\ReadMe\Scripts\ReadmeBE3.cs" />
+    <Compile Include="Assets\Script\GameManager.cs" />
+    <Compile Include="Assets\Script\EXPScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
