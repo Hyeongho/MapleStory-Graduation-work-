@@ -378,6 +378,8 @@ public class Player : MonoBehaviour
 
 			curHP = curHP - _damage;
 
+			TakeDamage(_damage);
+
 			if (curHP <= 0)
 			{
 				
@@ -430,7 +432,7 @@ public class Player : MonoBehaviour
 
 	IEnumerator HurtRoutine()
 	{
-		yield return new WaitForSeconds(5.0f);
+		yield return new WaitForSeconds(2.0f);
 
 		isHurt = false;
 	}
@@ -448,7 +450,7 @@ public class Player : MonoBehaviour
 			Debug.Log("tag");			
 		}
 
-		if (other.gameObject.CompareTag("EnemyAtk"))
+		if (other.gameObject.CompareTag("EnemyAtk") && !other.GetComponentInParent<EnemyController>().isDie)
 		{
 			Hurt(other.GetComponentInParent<EnemyController>().damage, other.transform.position);
 		}

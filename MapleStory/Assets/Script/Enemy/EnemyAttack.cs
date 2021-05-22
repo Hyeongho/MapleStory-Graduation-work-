@@ -6,7 +6,14 @@ public class EnemyAttack : MonoBehaviour
 {
 	public GameObject EnemyAtk;
 
-    public void StartAttack()
+	EnemyController enemy;
+
+	private void Start()
+	{
+		enemy = this.gameObject.GetComponentInParent<EnemyController>();
+	}
+
+	public void StartAttack()
 	{
 		EnemyAtk.SetActive(true);
 	}
@@ -14,5 +21,11 @@ public class EnemyAttack : MonoBehaviour
 	public void EndAttack()
 	{
 		EnemyAtk.SetActive(false);
+	}
+
+	public void StartSound()
+	{
+		enemy.audioSource.clip = enemy.clips[0];
+		enemy.audioSource.Play();
 	}
 }

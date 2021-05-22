@@ -38,15 +38,20 @@ public class EnemyController : EnemyData
 
 	QuestManger questManger;
 
-	bool isDie;
+	public bool isDie;
 
 	bool isHurt;
 	bool isKnockBack;
+
+	public AudioClip[] clips;
+	public AudioSource audioSource;
 
 	// Start is called before the first frame update
 	void Start()
     {
 		isDie = false;
+
+		isKnockBack = false;
 
 		NewX = Random.Range(2.0f, 20.0f);
 
@@ -57,6 +62,8 @@ public class EnemyController : EnemyData
 		Player = GameObject.FindWithTag("Player");
 
 		questManger = GameObject.Find("Quest Manager").GetComponent<QuestManger>();
+
+		audioSource = this.gameObject.GetComponent<AudioSource>();
 	}
 
     // Update is called once per frame
@@ -110,13 +117,16 @@ public class EnemyController : EnemyData
 
 				EnemyHP = EnemyHP - _damage;
 
-				//TakeDamage((int)_damage);
+				TakeDamage((int)_damage);
 
 				if (EnemyHP <= 0)
 				{
 					isDie = true;
 
 					EnemyAni.SetBool("isDie", true);
+
+					audioSource.clip = clips[1];
+					audioSource.Play();
 
 					Player.GetComponent<Player>().curEXP += Exp;
 

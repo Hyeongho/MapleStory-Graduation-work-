@@ -200,6 +200,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\UniGLTF\UniJSON\Scripts\StringSegment.cs" />
     <Compile Include="Assets\UniGLTF\UniHumanoid\PoseModifier\HandPose.cs" />
+    <Compile Include="Assets\Script\EXPScript.cs" />
     <Compile Include="Assets\UniGLTF\Core\Scripts\IO\IStorage.cs" />
     <Compile Include="Assets\UniGLTF\UniJSON\Scripts\Extensions\ArraySegmentExtensions.cs" />
     <Compile Include="Assets\UniGLTF\DepthFirstScheduler\Functor.cs" />
@@ -221,6 +222,7 @@
     <Compile Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Resources\IK\BoneController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\Script\DataManager.cs" />
+    <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\UniGLTF\Core\Scripts\IO\MaterialExporter.cs" />
     <Compile Include="Assets\UniGLTF\Core\Scripts\IO\glbImporter.cs" />
     <Compile Include="Assets\UniGLTF\UniJSON\Scripts\IFileSystemAccessor.cs" />
@@ -298,8 +300,7 @@
     <Compile Include="Assets\UniGLTF\UniHumanoid\PoseModifier\IPoseModifier.cs" />
     <Compile Include="Assets\UniGLTF\UniJSON\Scripts\JsonSchemaValidator\JsonArrayValidator.cs" />
     <Compile Include="Assets\Script\YunaPlayer.cs" />
-    <Compile Include="Assets\Script\GameManager.cs" />
-    <Compile Include="Assets\Script\EXPScript.cs" />
+    <Compile Include="Assets\Script\SoundManger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
