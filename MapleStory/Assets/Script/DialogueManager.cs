@@ -27,13 +27,13 @@ public class DialogueManager : MonoBehaviour
 
     public TalkManager talkManager;
     public TextMeshProUGUI talkText;
-    public GameObject scanObject;
     public GameObject talkPanel;
     public QuestManger questManger;
     public bool isAction;
 
     private int talkIndex;
 
+    GameObject scanObject;
 
     // Start is called before the first frame update
     void Start()

@@ -67,7 +67,22 @@ public class QuestManger : MonoBehaviour
 			{
                 questActionIndex = 1;
             }
-        }     
+        }
+
+		else if (questId == 50 && questActionIndex == 1)
+		{
+			if (count >= 5)
+			{
+                isComplet = true;
+
+                questActionIndex = 2;
+            }
+
+			else
+			{
+                questActionIndex = 1;
+            }
+		}
     }
 
 	void GenerataData()
@@ -75,15 +90,22 @@ public class QuestManger : MonoBehaviour
 		if (isPlayer.isKineis)
 		{
             questList.Add(10, new QuestData("키네시스", new int[] { 1000, 2000 }));
+            questList.Add(20, new QuestData("초능력자 진압", new int[] { 2000, 2000, 2000 }));
+            questList.Add(30, new QuestData("제이에게 가기", new int[] { 2000, 1000 }));
+            questList.Add(40, new QuestData("유나 찾아가기", new int[] { 1000, 2000 }));
+            questList.Add(50, new QuestData("시민 구출하기", new int[] { 1000, 2000 }));
+            questList.Add(60, new QuestData("퀘스트 클리어", new int[] { 0 }));
         }
 
 		else if (isPlayer.isYuna)
 		{
             questList.Add(10, new QuestData("유나", new int[] { 1000, 3000 }));
             questList.Add(20, new QuestData("초능력자 진압", new int[] { 3000, 3000, 3000 }));
-        }
-
-        questList.Add(30, new QuestData("퀘스트 클리어", new int[] { 0 }));
+            questList.Add(30, new QuestData("제이에게 가기", new int[] { 3000, 1000 }));
+            questList.Add(40, new QuestData("키네시스 찾아가기", new int[] { 1000, 3000 }));
+            questList.Add(50, new QuestData("시민 구출하기", new int[] { 3000, 3000, 5000, 3000}));
+            questList.Add(60, new QuestData("퀘스트 클리어", new int[] { 0 }));
+        }       
     }
 
     public int GetQuestTalkIndex(int id)
@@ -123,7 +145,37 @@ public class QuestManger : MonoBehaviour
 					else
 					{
                         questActionIndex++;
+                    }
+                    break;
 
+                case 30:
+                    questActionIndex++;
+                    isComplet = true;
+                    break;
+
+                case 40:
+                    questActionIndex++;
+                    isComplet = true;
+                    break;
+
+                case 50:
+                    if (questActionIndex == 1)
+                    {
+                        if (count >= 5)
+                        {
+                            isComplet = true;
+                        }
+
+                        else
+                        {
+                            questActionIndex = 1;
+                        }
+
+                    }
+
+                    else
+                    {
+                        questActionIndex++;
                     }
                     break;
 

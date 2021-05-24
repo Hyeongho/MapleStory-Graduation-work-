@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
 
 	public float ATK;
 
-	int Lv;
+	public int Lv;
 
 	public float EXP;
 	public float curEXP;
@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
 	GameObject PsychicSmashing2;
 
 	public bool isAttack;
+	public bool isSkill;
 	bool iskey;
 
 	bool tagNpc;
@@ -65,15 +66,30 @@ public class Player : MonoBehaviour
 
 	bool isKnockBack;
 
+	public float colHP;
+	public float colMP;
+
+	public float curColHP;
+	public float curColMP;
+
+	Animator levelUp;
+
 	private void Awake()
 	{
 		curHP = HP;
+		curMP = MP;
 
 		EXP = 15;
 
 		curEXP = 0;
 
 		Lv = 1;
+
+		colHP = 5.0f;
+		colMP = 5.0f;
+
+		curColHP = 0;
+		curColMP = 0;
 
 		DontDestroyOnLoad(this.gameObject);
 
@@ -132,8 +148,14 @@ public class Player : MonoBehaviour
 		}
 
 		playerAni = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
-		
+
+		levelUp = GameObject.Find("Levelefc").GetComponent<Animator>();
+
+		levelUp.gameObject.SetActive(false);
+
 		isAttack = false;
+
+		isSkill = false;
 
 		isMove = true;
 	}
@@ -146,9 +168,39 @@ public class Player : MonoBehaviour
 			if (isMove)
 			{
 				Move();
-			}
+			}		
 
 			Attack();
+		}
+
+		if (curColHP <= 0)
+		{
+			if (Input.GetKey(KeyCode.Delete))
+			{
+				curHP = curHP + (HP * 0.5f);
+
+				curColHP = colHP;
+			}
+		}
+
+		else
+		{
+			curColHP -= Time.deltaTime;
+		}
+
+		if (curColMP <= 0)
+		{
+			if (Input.GetKey(KeyCode.Insert))
+			{
+				curMP = curMP + (MP * 0.5f);
+
+				curColMP = colMP;
+			}
+		}
+
+		else
+		{
+			curColMP -= Time.deltaTime;
 		}
 
 		if (tagNpc)
@@ -165,15 +217,34 @@ public class Player : MonoBehaviour
 		{
 			Lv++;
 
+			levelUp.gameObject.SetActive(true);
+
 			HP = HP + 20;
 			MP = MP + 20;
 
 			curHP = HP;
 			curMP = MP;
 
-			curEXP = 0;
-			EXP = Mathf.Round(EXP + (EXP * 1.5f));
+			ATK += 10;
 
+			curEXP = 0;
+			EXP = Mathf.Round(EXP + (EXP * 0.5f));
+
+		}
+
+		if (curHP > HP)
+		{
+			curHP = HP;
+		}
+
+		if (curMP > MP)
+		{
+			curMP = MP;
+		}
+
+		if (levelUp.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f)
+		{
+			levelUp.gameObject.SetActive(false);
 		}
 	}
 
@@ -289,7 +360,7 @@ public class Player : MonoBehaviour
 
 		else if (isYuna)
 		{
-			if (Input.GetKeyDown(KeyCode.LeftControl))
+			if (Input.GetKeyDown(KeyCode.LeftControl) && !isSkill)
 			{
 				isMove = false;
 
@@ -299,45 +370,36 @@ public class Player : MonoBehaviour
 				playerAni.SetBool("isAttack", true);
 			}
 
-			else if (Input.GetKeyUp(KeyCode.LeftControl))
-			{
-				isAttack = false;
-			}
-
-			if (Input.GetKeyDown(KeyCode.LeftShift))
+			if (Input.GetKeyDown(KeyCode.LeftShift) && !isAttack)
 			{
 				isMove = false;
 
-				isAttack = true;
+				isSkill = true;
 
 				Skill.SetActive(true);
-				playerAni.SetBool("isAttack", true);
+				playerAni.SetBool("isSkill", true);
 			}
 
-			else if (Input.GetKeyUp(KeyCode.LeftShift))
+			if (attackAni.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f)
 			{
+				playerAni.SetBool("isAttack", false);
+
+				BasicAttack.SetActive(false);
+
 				isAttack = false;
+
+				isMove = true;
 			}
 
-			if (!isAttack)
+			if (skillAni.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
 			{
-				if (attackAni.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f)
-				{
-					playerAni.SetBool("isAttack", false);
+				playerAni.SetBool("isSkill", false);
 
-					BasicAttack.SetActive(false);
+				Skill.SetActive(false);
 
-					isMove = true;
-				}
+				isSkill = false;
 
-				if (skillAni.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f)
-				{
-					playerAni.SetBool("isAttack", false);
-
-					Skill.SetActive(false);
-
-					isMove = true;
-				}
+				isMove = true;
 			}
 		}
 	

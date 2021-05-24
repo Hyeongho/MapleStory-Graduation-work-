@@ -141,6 +141,13 @@ public class EnemyController : EnemyData
 							}
 							break;
 
+						case 50:
+							if (questManger.questActionIndex == 1 && ID == 3)
+							{
+								questManger.count++;
+							}
+							break;
+
 						default:
 							break;
 					}
