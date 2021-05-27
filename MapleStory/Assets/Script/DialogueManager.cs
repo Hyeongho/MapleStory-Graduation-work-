@@ -29,6 +29,8 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI talkText;
     public GameObject talkPanel;
     public QuestManger questManger;
+    public TextMeshProUGUI questText;
+
     public bool isAction;
 
     private int talkIndex;
@@ -42,6 +44,8 @@ public class DialogueManager : MonoBehaviour
         talkIndex = 0;
 
         Debug.Log(questManger.ChexkQuest());
+
+        questText.text = questManger.ChexkQuest();
     }
 
     public void Action(GameObject _scanObject)
@@ -70,6 +74,10 @@ public class DialogueManager : MonoBehaviour
             isAction = false;
             talkIndex = 0;
             questManger.ChexkQuest(id);
+
+            questText.text = questManger.ChexkQuest(id);
+
+
             return;
 		}
 

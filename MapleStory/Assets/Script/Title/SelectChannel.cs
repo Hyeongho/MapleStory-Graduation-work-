@@ -32,6 +32,11 @@ public class SelectChannel : MonoBehaviour
 		iTween.ValueTo(gameObject, iTween.Hash("from", 0.0f, "to", 255.0f, "time", 2.0f, "easetype", iTween.EaseType.linear, "onupdate", "FadeUpdate", "oncomplete", "ButonHide"));
 	}
 
+	public void EndGame()
+	{
+		Application.Quit();
+	}
+
 	void FadeUpdate(float alpha)
 	{
 		fadeImage.color = new Color(0.0f, 0.0f, 0.0f, alpha / 255.0f);

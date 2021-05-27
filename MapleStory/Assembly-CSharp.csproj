@@ -202,6 +202,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\UniGLTF\UniJSON\Scripts\StringSegment.cs" />
     <Compile Include="Assets\UniGLTF\UniHumanoid\PoseModifier\HandPose.cs" />
+    <Compile Include="Assets\Script\UI\LevelSound.cs" />
     <Compile Include="Assets\Script\EXPScript.cs" />
     <Compile Include="Assets\UniGLTF\Core\Scripts\IO\IStorage.cs" />
     <Compile Include="Assets\UniGLTF\UniJSON\Scripts\Extensions\ArraySegmentExtensions.cs" />
@@ -303,7 +304,12 @@
     <Compile Include="Assets\UniGLTF\UniHumanoid\PoseModifier\IPoseModifier.cs" />
     <Compile Include="Assets\UniGLTF\UniJSON\Scripts\JsonSchemaValidator\JsonArrayValidator.cs" />
     <Compile Include="Assets\Script\YunaPlayer.cs" />
-    <Compile Include="Assets\Script\UI\LevelSound.cs" />
+    <Compile Include="Assets\Unity-Logs-Viewer\Reporter\Test\TestReporter.cs" />
+    <Compile Include="Assets\Unity-Logs-Viewer\Reporter\ReporterGUI.cs" />
+    <Compile Include="Assets\Unity-Logs-Viewer\Reporter\Reporter.cs" />
+    <Compile Include="Assets\Unity-Logs-Viewer\Reporter\ReporterMessageReceiver.cs" />
+    <Compile Include="Assets\Unity-Logs-Viewer\Reporter\Test\Rotate.cs" />
+    <Compile Include="Assets\Unity-Logs-Viewer\Reporter\MultiKeyDictionary.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />

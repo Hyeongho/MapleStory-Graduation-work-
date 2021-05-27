@@ -89,7 +89,7 @@ public class Enemy : MonoBehaviour
 			{
 				isTargeting = true;
 
-				velocity = 0.01f;
+				velocity = 0.001f;
 
 				this.transform.LookAt(targetPosition);
 

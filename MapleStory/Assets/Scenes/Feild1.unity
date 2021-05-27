@@ -3221,7 +3221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transferMapName: Feild3
-  pastMapName: 
+  pastMapName: Feild1
 --- !u!1 &435983541
 GameObject:
   m_ObjectHideFlags: 0

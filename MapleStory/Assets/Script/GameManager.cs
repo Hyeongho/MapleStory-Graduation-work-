@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour
 
     public GameObject Meun;
 
+    Player player;
+
+    QuestManger questManger;
+
     private void Awake()
     {
         if (instance == null)

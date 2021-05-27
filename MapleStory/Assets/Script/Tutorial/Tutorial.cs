@@ -45,6 +45,6 @@ public class Tutorial : MonoBehaviour
 	{
 		textList.Add("←, →를 누르면 이동합니다.");
 		textList.Add("alt키를 누르면 점프를 합니다.");
-		textList.Add("ctrl키를 누르면 공격을 합니다.");
+		textList.Add("ctrl키를 누르면 공격을 합니다.\n Insert키를 누르면 HP회복 Delete키를 누르면 MP를 회복 합니다.(쿨타임 5초)");
 	}
 }

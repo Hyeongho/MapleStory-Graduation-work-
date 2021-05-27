@@ -76,6 +76,10 @@ public class Player : MonoBehaviour
 
 	private void Awake()
 	{
+		HP = 100;
+
+		MP = 100;
+
 		curHP = HP;
 		curMP = MP;
 
@@ -127,12 +131,12 @@ public class Player : MonoBehaviour
 			attackAni = GameObject.Find("Attack").GetComponent<Animator>();
 			BasicAttack = GameObject.Find("Attack");
 
-			PS2 = GameObject.Find("PsychicSmashing2").GetComponent<Animator>();
-			PsychicSmashing2 = GameObject.Find("PsychicSmashing2");
+			skillAni = GameObject.FindGameObjectWithTag("Skill").GetComponent<Animator>();
+			Skill = GameObject.FindGameObjectWithTag("Skill");
 
 			BasicAttack.SetActive(false);
 
-			PsychicSmashing2.SetActive(false);
+			Skill.SetActive(false);
 		}
 
 		else if (isYuna)
@@ -326,9 +330,9 @@ public class Player : MonoBehaviour
 			{
 				isMove = false;
 
-				isAttack = true;
+				isSkill = true;
 
-				PsychicSmashing2.SetActive(true);
+				Skill.SetActive(true);
 			}
 
 			else if (Input.GetKeyUp(KeyCode.LeftShift))
@@ -347,11 +351,13 @@ public class Player : MonoBehaviour
 					isMove = true;
 				}
 
-				if ((PS2.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f) && PS2.GetCurrentAnimatorStateInfo(0).IsName("PsychicSmashing2_hit"))
+				if (skillAni.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
 				{
-					enemyList.Clear();
+					//playerAni.SetBool("isSkill", false);
 
-					PsychicSmashing2.SetActive(false);
+					Skill.SetActive(false);
+
+					isSkill = false;
 
 					isMove = true;
 				}
@@ -370,15 +376,20 @@ public class Player : MonoBehaviour
 				playerAni.SetBool("isAttack", true);
 			}
 
-			if (Input.GetKeyDown(KeyCode.LeftShift) && !isAttack)
+			if (curMP >= 10)
 			{
-				isMove = false;
+				if (Input.GetKeyDown(KeyCode.LeftShift) && !isAttack)
+				{
+					curMP -= 10;
 
-				isSkill = true;
+					isMove = false;
 
-				Skill.SetActive(true);
-				playerAni.SetBool("isSkill", true);
-			}
+					isSkill = true;
+
+					Skill.SetActive(true);
+					playerAni.SetBool("isSkill", true);
+				}
+			}	
 
 			if (attackAni.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f)
 			{

@@ -9,7 +9,8 @@ public class EnemyController : EnemyData
 
     public float speed;
 
-    bool isTargeting = false;
+    public bool isTargeting = false;
+	public bool isMove;
 
 	Transform target;
 	Vector3 targetPosition;
@@ -51,6 +52,8 @@ public class EnemyController : EnemyData
     {
 		isDie = false;
 
+		isMove = true;
+
 		isKnockBack = false;
 
 		NewX = Random.Range(2.0f, 20.0f);
@@ -73,7 +76,10 @@ public class EnemyController : EnemyData
 		{
 			if (!isTargeting)
 			{
-				Move();
+				if (isMove)
+				{
+					Move();
+				}
 			}
 
 			else
@@ -217,6 +223,8 @@ public class EnemyController : EnemyData
 		if (other.gameObject.CompareTag("Player"))
 		{
 			targetPosition = new Vector3(target.position.x, this.gameObject.transform.position.y, target.position.z);
+
+			isMove = false;
 
 			this.transform.LookAt(targetPosition);
 

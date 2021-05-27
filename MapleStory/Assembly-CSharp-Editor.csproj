@@ -117,6 +117,7 @@
     <Compile Include="Assets\UniGLTF\UniJSON\Editor\Tests\ValidatorTests.cs" />
     <Compile Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Editor\MMDLoader\Private\VMDLoaderScript.cs" />
     <Compile Include="Assets\mmd-for-unity-proj-mmd-for-unity-82ac2fe\Editor\Inspector\PMDScriptableObject.cs" />
+    <Compile Include="Assets\Unity-Logs-Viewer\Reporter\Editor\ReporterEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
